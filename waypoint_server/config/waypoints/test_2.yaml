@@ -9,211 +9,1238 @@ waypoint_server:
     y: 0
     z: 1.57
   waypoints:
-    - id: registed_0_1759821764581141903
+    - id: registed_0_1759821695689475135
       position:
-        x: -81.43881
-        y: 488.1928
+        x: -100.7446
+        y: 556.8082
+        z: -3.000002
+      euler_angles:
+        x: 0
+        y: 0
+        z: -0.6061699
+      properties:
+        - key: stop
+          value: ""
+    - id: registed_0_1759822225169547813
+      position:
+        x: -116.2969
+        y: 245.3372
+        z: -3
+      euler_angles:
+        x: 8.742261e-08
+        y: 8.74228e-08
+        z: -1.525842
+      properties:
+        - key: stop
+          value: ""
+    - id: registed_0_1759836407223938111
+      position:
+        x: -19.4761
+        y: -3.319492
+        z: -3
+      euler_angles:
+        x: -0
+        y: -0
+        z: 1.839446
+      properties:
+        - key: stop
+          value: ""
+    - id: registed_0_1758641460093999797
+      position:
+        x: -15.49572
+        y: -59.73645
+        z: -3
+      euler_angles:
+        x: -0
+        y: 0
+        z: 1.537176
+      properties:
+        - key: stop
+          value: ""
+    - id: registed_0_1759821475611034665
+      position:
+        x: -68.22849
+        y: 437.084
+        z: -3
+      euler_angles:
+        x: 3.662075e-08
+        y: 2.649844e-08
+        z: 1.952896
+      properties:
+        - key: stop
+          value: ""
+    - id: registed_0_1759821889460486939
+      position:
+        x: -49.19583
+        y: 403.3148
+        z: -3
+      euler_angles:
+        x: 8.742209e-08
+        y: -1.509958e-07
+        z: -1.300567
+      properties:
+        - key: stop
+          value: ""
+    - id: registed_0_1759821180426224521
+      position:
+        x: 77.61227
+        y: 415.739
         z: -3
       euler_angles:
         x: 0
         y: 0
-        z: -1.390524
+        z: -2.02081
       properties:
         - key: stop
           value: ""
-    - id: registed_0_1758695044149810460
+    - id: registed_0_1759821115752678535
       position:
-        x: -48.18538
-        y: 39.3459
-        z: -2.999996
+        x: 113.851
+        y: 412.2689
+        z: -3
       euler_angles:
         x: -0
         y: -0
-        z: 1.888274
+        z: 2.164102
       properties:
         - key: stop
           value: ""
-    - id: registed_0_1759821537361360066
+    - id: registed_0_1759822149037443891
       position:
-        x: -85.33844
-        y: 501.0346
-        z: -2.999996
-      euler_angles:
-        x: -0
-        y: -0
-        z: 2.144172
-      properties:
-        - key: stop
-          value: ""
-    - id: registed_0_1758641331677109280
-      position:
-        x: -90.27117
-        y: -49.54675
-        z: -3.000031
+        x: -44.17303
+        y: 271.5452
+        z: -3
       euler_angles:
         x: 0
         y: 0
-        z: -1.297402
+        z: -2.847633
       properties:
         - key: stop
           value: ""
-    - id: registed_0_1759820693828685503
+    - id: registed_0_1759821505974582958
       position:
-        x: -96.34607
-        y: 257.6484
+        x: -79.52164
+        y: 476.4907
+        z: -3.000002
+      euler_angles:
+        x: -0
+        y: -0
+        z: 1.840539
+      properties:
+        - key: goal_radius
+          value: 1.000000
+        - key: stop
+          value: ""
+    - id: registed_0_1759821175317437424
+      position:
+        x: 51.81305
+        y: 380.9334
+        z: -3
+      euler_angles:
+        x: 0
+        y: 0
+        z: -2.54421
+      properties:
+        - key: stop
+          value: ""
+    - id: registed_0_1759822338133787544
+      position:
+        x: -79.4368
+        y: 112.2387
+        z: -3
+      euler_angles:
+        x: 0
+        y: 0
+        z: -1.267225
+    - id: registed_0_1758641541995757239
+      position:
+        x: -26.9114
+        y: 2.311689
+        z: -3
+      euler_angles:
+        x: -0
+        y: -0
+        z: 1.934212
+      properties:
+        - key: stop
+          value: ""
+    - id: registed_0_1759821361680549319
+      position:
+        x: -33.8515
+        y: 409.4137
+        z: -3
+      euler_angles:
+        x: -0
+        y: -0
+        z: 2.060616
+      properties:
+        - key: stop
+          value: ""
+    - id: registed_0_1759820764688067901
+      position:
+        x: -30.77393
+        y: 274.0677
+        z: -3.000003
+      euler_angles:
+        x: -0
+        y: 0
+        z: 0.2726156
+      properties:
+        - key: stop
+          value: true
+        - key: goal_radius
+          value: 1.0
+    - id: registed_0_1759822165784455011
+      position:
+        x: -66.30637
+        y: 265.1971
+        z: -3
+      euler_angles:
+        x: 8.74228e-08
+        y: 1.509957e-07
+        z: -2.878487
+      properties:
+        - key: stop
+          value: ""
+    - id: registed_0_1758641506977647425
+      position:
+        x: -12.52618
+        y: -21.10461
+        z: -3
+      euler_angles:
+        x: -0
+        y: -0
+        z: 1.87339
+      properties:
+        - key: stop
+          value: ""
+    - id: registed_0_1758712299775225648
+      position:
+        x: -83.37546
+        y: -86.71041
+        z: -3
+      euler_angles:
+        x: 0
+        y: 0
+        z: -1.163617
+      properties:
+        - key: stop
+          value: ""
+    - id: registed_0_1759821322606713525
+      position:
+        x: -20.58859
+        y: 368.4602
+        z: -3
+      euler_angles:
+        x: -0
+        y: -0
+        z: 1.893103
+      properties:
+        - key: stop
+          value: ""
+    - id: registed_0_1759821834404268934
+      position:
+        x: -66.91959
+        y: 432.3567
+        z: -2.999996
+      euler_angles:
+        x: 0
+        y: 0
+        z: -1.435461
+      properties:
+        - key: stop
+          value: ""
+    - id: registed_0_1759821914913515383
+      position:
+        x: -38.78864
+        y: 368.6386
+        z: -3
+      euler_angles:
+        x: 0
+        y: 0
+        z: -1.284543
+      properties:
+        - key: stop
+          value: ""
+    - id: registed_0_1758641337038883304
+      position:
+        x: -88.40828
+        y: -56.11327
+        z: -3
+      euler_angles:
+        x: 0
+        y: 0
+        z: -1.336125
+      properties:
+        - key: stop
+          value: ""
+    - id: registed_0_1759820984643738304
+      position:
+        x: 78.76196
+        y: 344.0893
+        z: -3
+      euler_angles:
+        x: 3.304143e-08
+        y: -6.951701e-08
+        z: 0.1523131
+      properties:
+        - key: stop
+          value: ""
+    - id: registed_0_1759820710357161409
+      position:
+        x: -77.4585
+        y: 262.6447
         z: -3.000004
       euler_angles:
         x: -0
         y: 0
-        z: 0.2723135
+        z: 0.2399018
       properties:
         - key: stop
           value: ""
-    - id: registed_0_1759821530051858969
+    - id: registed_0_1759821905685781951
       position:
-        x: -82.41589
-        y: 492.5707
+        x: -43.96927
+        y: 384.7089
+        z: -3
+      euler_angles:
+        x: 0
+        y: 0
+        z: -1.302602
+      properties:
+        - key: stop
+          value: ""
+    - id: registed_0_1759821000244057487
+      position:
+        x: 103.1936
+        y: 350.5379
+        z: -3
+      euler_angles:
+        x: -0
+        y: 0
+        z: 0.7393423
+      properties:
+        - key: stop
+          value: ""
+    - id: registed_0_1759822445052500846
+      position:
+        x: -33.64724
+        y: 84.04196
+        z: -3.000004
+      euler_angles:
+        x: -0
+        y: 0
+        z: 0.3227401
+    - id: registed_0_1759820590626440530
+      position:
+        x: -99.48602
+        y: 183.2577
+        z: -3
+      euler_angles:
+        x: 3.532905e-08
+        y: 1.790033e-08
+        z: 1.964981
+      properties:
+        - key: stop
+          value: ""
+    - id: registed_0_319853000000
+      position:
+        x: -32.33353
+        y: 273.8125
+        z: -3
+      euler_angles:
+        x: 8.742269e-08
+        y: -8.742288e-08
+        z: 0.2391914
+      properties:
+        - key: goal_radius
+          value: 1.000000
+    - id: registed_0_1758641344933789035
+      position:
+        x: -84.734
+        y: -70.17514
+        z: -3
+      euler_angles:
+        x: 0
+        y: 0
+        z: -1.106591
+      properties:
+        - key: stop
+          value: ""
+    - id: 3
+      position:
+        x: -10.35076
+        y: 14.1976
         z: -3
       euler_angles:
         x: -0
         y: -0
-        z: 1.958825
+        z: 1.813308
       properties:
         - key: stop
           value: ""
-    - id: registed_0_1759822200802827866
+      connections:
+        - 1
+    - id: registed_0_1758693596989194850
       position:
-        x: -99.42206
-        y: 256.4385
+        x: -33.43933
+        y: 20.75969
+        z: -3
+      euler_angles:
+        x: -0
+        y: -0
+        z: 1.921099
+      properties:
+        - key: stop
+          value: ""
+    - id: registed_0_1759821483739059792
+      position:
+        x: -72.52271
+        y: 454.5459
+        z: -3
+      euler_angles:
+        x: 8.742248e-08
+        y: -8.742307e-08
+        z: 1.928614
+      properties:
+        - key: stop
+          value: ""
+    - id: registed_0_167342000000
+      position:
+        x: -50.69638
+        y: 49.06906
+        z: -3
+      euler_angles:
+        x: -0
+        y: -0
+        z: 1.866565
+      properties:
+        - key: goal_radius
+          value: 1.0
+        - key: stop
+          value: false
+    - id: registed_0_1759820717119924062
+      position:
+        x: -70.18085
+        y: 264.5656
+        z: -3.000004
+      euler_angles:
+        x: -0
+        y: 0
+        z: 0.3611629
+      properties:
+        - key: stop
+          value: ""
+    - id: registed_0_1744525877836597312
+      position:
+        x: -17.02273
+        y: 35.73943
         z: -3
       euler_angles:
         x: 0
         y: 0
-        z: -2.852845
+        z: -3.0995
       properties:
         - key: stop
           value: ""
-    - id: registed_0_1759821710448854078
+    - id: registed_0_1759821755436859707
       position:
-        x: -95.94458
-        y: 542.3671
+        x: -84.01779
+        y: 497.5364
         z: -3
       euler_angles:
         x: 0
         y: 0
-        z: -1.256916
+        z: -1.35598
       properties:
         - key: stop
           value: ""
-    - id: registed_0_1759822023275393601
+    - id: 1
       position:
-        x: -6.666077
-        y: 296.9884
+        x: -6.525087
+        y: 2.064783
         z: -3
       euler_angles:
-        x: 0
-        y: 0
-        z: -1.328403
+        x: 3.067268e-08
+        y: 7.567943e-09
+        z: 1.857235
       properties:
         - key: stop
           value: true
         - key: goal_radius
           value: 1.000000
-    - id: registed_0_1759820655008207808
+      connections:
+        - 2
+    - id: registed_0_1759822256850851930
       position:
-        x: -116.4751
-        y: 241.9443
+        x: -104.351
+        y: 199.0566
+        z: -3
+      euler_angles:
+        x: 8.742277e-08
+        y: 8.742277e-08
+        z: -1.302046
+      properties:
+        - key: stop
+          value: ""
+    - id: registed_0_1759822251114769575
+      position:
+        x: -107.0194
+        y: 212.9498
+        z: -3
+      euler_angles:
+        x: 8.742175e-08
+        y: -1.509953e-07
+        z: -1.460053
+      properties:
+        - key: stop
+          value: ""
+    - id: registed_0_1759821134950842178
+      position:
+        x: 102.8017
+        y: 426.4341
         z: -3
       euler_angles:
         x: -0
         y: -0
-        z: 1.645901
+        z: 2.593888
       properties:
         - key: stop
           value: ""
-    - id: registed_0_1759822003239408840
+    - id: registed_0_1759821704081107114
       position:
-        x: -7.653687
-        y: 302.3106
+        x: -97.6629
+        y: 550.8441
+        z: -2.999996
+      euler_angles:
+        x: 0
+        y: 0
+        z: -1.322215
+      properties:
+        - key: stop
+          value: ""
+    - id: registed_0_1759820941900030529
+      position:
+        x: 43.14642
+        y: 335.0416
+        z: -3
+      euler_angles:
+        x: -0
+        y: 0
+        z: 0.2083028
+      properties:
+        - key: stop
+          value: ""
+    - id: registed_0_1759820757102181647
+      position:
+        x: -37.33633
+        y: 273.0364
+        z: -3
+      euler_angles:
+        x: -0
+        y: 0
+        z: 0.2332792
+      properties:
+        - key: goal_radius
+          value: 1.000000
+        - key: stop
+          value: ""
+    - id: registed_0_1759820747223879136
+      position:
+        x: -46.88919
+        y: 272.0243
+        z: -3
+      euler_angles:
+        x: -0
+        y: 0
+        z: 0.3490196
+      properties:
+        - key: stop
+          value: ""
+    - id: registed_0_1759821946000279314
+      position:
+        x: -25.78699
+        y: 325.1872
+        z: -3.000002
+      euler_angles:
+        x: 0
+        y: 0
+        z: -1.196217
+      properties:
+        - key: stop
+          value: ""
+    - id: registed_0_1759821274756312652
+      position:
+        x: 19.13531
+        y: 372.2491
+        z: -2.999996
+      euler_angles:
+        x: 0
+        y: 0
+        z: -2.756489
+      properties:
+        - key: stop
+          value: ""
+    - id: registed_0_1759821738703400140
+      position:
+        x: -88.95697
+        y: 511.3526
+        z: -3
+      euler_angles:
+        x: 8.742269e-08
+        y: -1.509957e-07
+        z: -1.182983
+      properties:
+        - key: stop
+          value: ""
+    - id: registed_0_1759821684746247091
+      position:
+        x: -108.3798
+        y: 557.2944
+        z: -3
+      euler_angles:
+        x: 2.316784e-08
+        y: -4.396907e-08
+        z: 0.3085333
+      properties:
+        - key: stop
+          value: ""
+    - id: registed_0_1759820644039171990
+      position:
+        x: -113.4958
+        y: 229.8998
+        z: -3
+      euler_angles:
+        x: -0
+        y: -0
+        z: 1.83982
+      properties:
+        - key: stop
+          value: ""
+    - id: registed_0_1759822427646073151
+      position:
+        x: -58.47792
+        y: 77.06213
+        z: -2.999996
+      euler_angles:
+        x: -0
+        y: 0
+        z: 0.3037271
+    - id: registed_0_1744525932584876896
+      position:
+        x: -30.04316
+        y: 31.7437
         z: -3
       euler_angles:
         x: 0
         y: 0
-        z: -1.343133
+        z: -2.678922
+      properties:
+        - key: stop
+          value: ""
+    - id: registed_0_1759821567053040472
+      position:
+        x: -93.54022
+        y: 531.349
+        z: -2.999999
+      euler_angles:
+        x: -0
+        y: -0
+        z: 1.867599
+      properties:
+        - key: stop
+          value: ""
+    - id: registed_0_1744525850871571040
+      position:
+        x: -12.37181
+        y: 20.93876
+        z: -2.999996
+      euler_angles:
+        x: -0
+        y: -0
+        z: 1.915409
+      properties:
+        - key: stop
+          value: ""
+    - id: registed_0_1759821284360837345
+      position:
+        x: 13.97714
+        y: 370.504
+        z: -2.999996
+      euler_angles:
+        x: 0
+        y: 0
+        z: -2.5252
+      properties:
+        - key: stop
+          value: ""
+    - id: registed_0_1759821955586057166
+      position:
+        x: -23.48816
+        y: 318.2403
+        z: -3
+      euler_angles:
+        x: 0
+        y: 0
+        z: -1.311454
+      properties:
+        - key: stop
+          value: ""
+    - id: registed_0_1758641388922032064
+      position:
+        x: -58.00994
+        y: -90.04437
+        z: -2.999999
+      euler_angles:
+        x: -0
+        y: 0
+        z: 0.4263254
+      properties:
+        - key: stop
+          value: ""
+    - id: registed_0_1759817289927580052
+      position:
+        x: -93.40427
+        y: -36.24259
+        z: -3
+      euler_angles:
+        x: 0
+        y: 0
+        z: -1.288261
+      properties:
+        - key: stop
+          value: ""
+    - id: registed_0_1758640140073072780
+      position:
+        x: -49.03319
+        y: 22.18471
+        z: -3
+      euler_angles:
+        x: 0
+        y: 0
+        z: -2.761852
+      properties:
+        - key: stop
+          value: ""
+    - id: registed_0_1759820894362557865
+      position:
+        x: -0.8768311
+        y: 320.7335
+        z: -2.999996
+      euler_angles:
+        x: -0
+        y: 0
+        z: 1.022415
+      properties:
+        - key: stop
+          value: ""
+    - id: registed_0_1759821999743732915
+      position:
+        x: -13.83505
+        y: 306.8458
+        z: -3
+      euler_angles:
+        x: 8.742277e-08
+        y: -1.509958e-07
+        z: -0.4691191
+      properties:
+        - key: stop
+          value: ""
+    - id: registed_0_1759820823203567583
+      position:
+        x: -3.210785
+        y: 279.7625
+        z: -2.999996
+      euler_angles:
+        x: -0
+        y: 0
+        z: 0.305871
+      properties:
+        - key: stop
+          value: true
+        - key: goal_radius
+          value: 1.0
+    - id: registed_0_1759820532530773063
+      position:
+        x: -86.41931
+        y: 138.3464
+        z: -3.000004
+      euler_angles:
+        x: -0
+        y: -0
+        z: 1.938735
+      properties:
+        - key: stop
+          value: ""
+    - id: registed_0_1758640197034113527
+      position:
+        x: -62.75811
+        y: 17.40845
+        z: -3
+      euler_angles:
+        x: 0
+        y: 0
+        z: -2.852227
+      properties:
+        - key: stop
+          value: ""
+    - id: registed_0_1758694310760242202
+      position:
+        x: -71.15942
+        y: 87.02181
+        z: -3
+      euler_angles:
+        x: -0
+        y: -0
+        z: 1.935485
+      properties:
+        - key: stop
+          value: true
+        - key: goal_radius
+          value: 1.000000
+    - id: registed_0_1759820698947808433
+      position:
+        x: -90.2644
+        y: 258.8977
+        z: -2.999996
+      euler_angles:
+        x: -0
+        y: 0
+        z: 0.4080012
+      properties:
+        - key: stop
+          value: ""
+    - id: registed_0_1759820921338624977
+      position:
+        x: 22.56223
+        y: 328.7508
+        z: -3.000004
+      euler_angles:
+        x: -0
+        y: 0
+        z: 0.2842092
+      properties:
+        - key: stop
+          value: ""
+    - id: registed_0_1764734681588569437
+      position:
+        x: -55.66165
+        y: 76.87708
+        z: -3
+      euler_angles:
+        x: -0
+        y: 0
+        z: 0.2632599
+    - id: registed_0_1758640572465193646
+      position:
+        x: -109.585
+        y: -4.633514
+        z: -3
+      euler_angles:
+        x: 8.742261e-08
+        y: -1.509958e-07
+        z: -1.21874
+      properties:
+        - key: stop
+          value: ""
+    - id: registed_0_1759821164957732659
+      position:
+        x: 88.37659
+        y: 428.5279
+        z: -3.000004
+      euler_angles:
+        x: 0
+        y: 0
+        z: -2.454963
+      properties:
+        - key: stop
+          value: ""
+    - id: registed_0_1759820688693381347
+      position:
+        x: -103.0165
+        y: 255.7345
+        z: -3.000004
+      euler_angles:
+        x: -0
+        y: 0
+        z: 0.3480673
+      properties:
+        - key: stop
+          value: ""
+    - id: registed_0_1758693683323412080
+      position:
+        x: -52.21805
+        y: 55.09183
+        z: -2.999996
+      euler_angles:
+        x: -0
+        y: -0
+        z: 1.972002
+      properties:
+        - key: stop
+          value: true
+        - key: goal_radius
+          value: 1.000000
+    - id: registed_0_1759821791934166048
+      position:
+        x: -77.78189
+        y: 468.5374
+        z: -3
+      euler_angles:
+        x: 0
+        y: 0
+        z: -1.141901
+      properties:
+        - key: goal_radius
+          value: 1.000000
+        - key: stop
+          value: ""
+    - id: registed_0_1759821044561320228
+      position:
+        x: 128.4372
+        y: 364.2456
+        z: -3
+      euler_angles:
+        x: -0
+        y: 0
+        z: 0.4548759
+      properties:
+        - key: stop
+          value: ""
+    - id: registed_0_1759821479729024985
+      position:
+        x: -70.46548
+        y: 446.0969
+        z: -3
+      euler_angles:
+        x: 4.07075e-08
+        y: 2.401563e-08
+        z: 1.929638
+      properties:
+        - key: stop
+          value: ""
+    - id: registed_0_1759821157749910352
+      position:
+        x: 92.69113
+        y: 430.3416
+        z: -3
+      euler_angles:
+        x: 0
+        y: 0
+        z: -2.739456
+      properties:
+        - key: stop
+          value: ""
+    - id: registed_0_1758641374450476201
+      position:
+        x: -66.38194
+        y: -92.60426
+        z: -2.999999
+      euler_angles:
+        x: -0
+        y: 0
+        z: 0.4162142
+      properties:
+        - key: stop
+          value: ""
+    - id: registed_0_1759820928399932411
+      position:
+        x: 27.79446
+        y: 330.5492
+        z: -3
+      euler_angles:
+        x: -0
+        y: 0
+        z: 0.3028283
+      properties:
+        - key: stop
+          value: ""
+    - id: registed_0_1758641398391686320
+      position:
+        x: -40.22889
+        y: -84.96573
+        z: -3
+      euler_angles:
+        x: -0
+        y: 0
+        z: 0.2914235
+      properties:
+        - key: stop
+          value: ""
+    - id: registed_0_1759820972160733580
+      position:
+        x: 73.04993
+        y: 342.0681
+        z: -3
+      euler_angles:
+        x: -0
+        y: 0
+        z: 0.3993331
+      properties:
+        - key: stop
+          value: ""
+    - id: registed_0_1759822356380538423
+      position:
+        x: -73.20849
+        y: 93.37626
+        z: -3.000002
+      euler_angles:
+        x: 0
+        y: 0
+        z: -1.287857
       properties:
         - key: goal_radius
           value: 1.0
         - key: stop
           value: true
-    - id: registed_0_1759821561720183587
+    - id: registed_0_1759821647977108855
       position:
-        x: -91.84265
-        y: 523.7059
-        z: -2.999999
+        x: -132.4417
+        y: 549.776
+        z: -3.000002
+      euler_angles:
+        x: 0
+        y: 0
+        z: -0.7606732
+      properties:
+        - key: stop
+          value: ""
+    - id: registed_0_1759821469579503205
+      position:
+        x: -66.00885
+        y: 426.5862
+        z: -2.999996
       euler_angles:
         x: -0
         y: -0
-        z: 1.861864
+        z: 1.923038
       properties:
         - key: stop
           value: ""
-    - id: registed_0_1758641498824868628
+    - id: registed_0_1759821110586928271
       position:
-        x: -16.9508
-        y: -26.66846
+        x: 118.4577
+        y: 405.182
         z: -3
       euler_angles:
-        x: 8.834077e-08
-        y: -3.987644e-08
-        z: 0.7628279
+        x: -0
+        y: -0
+        z: 2.030936
       properties:
         - key: stop
           value: ""
-    - id: registed_0_1759821633861517472
+    - id: registed_0_1759822449147401624
       position:
-        x: -123.9874
-        y: 554.4871
+        x: -18.49026
+        y: 88.22823
+        z: -3.000004
+      euler_angles:
+        x: -0
+        y: 0
+        z: 0.2395627
+    - id: registed_0_1759822232865128797
+      position:
+        x: -115.2589
+        y: 237.5867
         z: -3
       euler_angles:
-        x: 8.742272e-08
-        y: 1.50996e-07
-        z: -2.894052
+        x: 8.742277e-08
+        y: -1.509962e-07
+        z: -1.323778
       properties:
         - key: stop
           value: ""
-    - id: registed_0_1759848354063951493
+    - id: registed_0_1759822093846861431
       position:
-        x: -64.67242
-        y: 416.9838
+        x: -6.208771
+        y: 282.514
+        z: -3.000002
+      euler_angles:
+        x: 0
+        y: 0
+        z: -2.835634
+      properties:
+        - key: stop
+          value: ""
+    - id: registed_0_1759821330310648326
+      position:
+        x: -23.55847
+        y: 377.3329
+        z: -3
+      euler_angles:
+        x: -0
+        y: -0
+        z: 1.973664
+      properties:
+        - key: stop
+          value: ""
+    - id: registed_0_1759822346014720553
+      position:
+        x: -76.84688
+        y: 103.337
+        z: -3
+      euler_angles:
+        x: 0
+        y: 0
+        z: -1.187561
+    - id: registed_0_1759822049654881470
+      position:
+        x: -3.088898
+        y: 284.4557
+        z: -3
+      euler_angles:
+        x: 0
+        y: 0
+        z: -2.778916
+    - id: registed_0_1759821106174643196
+      position:
+        x: 122.5086
+        y: 400.0038
+        z: -3
+      euler_angles:
+        x: 2.942873e-08
+        y: 3.288189e-08
+        z: 2.359431
+      properties:
+        - key: stop
+          value: ""
+    - id: registed_0_1759821981589776805
+      position:
+        x: -17.9924
+        y: 307.8174
+        z: -3
+      euler_angles:
+        x: 8.742259e-08
+        y: -1.50996e-07
+        z: -0.228263
+      properties:
+        - key: stop
+          value: ""
+    - id: registed_0_1759820559900422399
+      position:
+        x: -94.11159
+        y: 160.2414
+        z: -3
+      euler_angles:
+        x: -0
+        y: -0
+        z: 1.922501
+      properties:
+        - key: stop
+          value: true
+        - key: goal_radius
+          value: 1.0
+    - id: registed_0_1759821776581107832
+      position:
+        x: -79.59711
+        y: 476.3479
         z: -2.999998
       euler_angles:
         x: 0
         y: 0
-        z: -1.350936
+        z: -1.164022
+      properties:
+        - key: goal_radius
+          value: 1.0
+        - key: stop
+          value: ""
+    - id: registed_0_1758641451264871192
+      position:
+        x: -13.72595
+        y: -67.5353
+        z: -3.000001
+      euler_angles:
+        x: -0
+        y: -0
+        z: 1.759626
       properties:
         - key: stop
           value: ""
-    - id: registed_0_1759822058812812893
+        - key: goal_radius
+          value: 1.000000
+    - id: registed_0_1759821877753680361
       position:
-        x: -4.712769
-        y: 283.1551
-        z: -2.999998
+        x: -50.37976
+        y: 415.4891
+        z: -3
       euler_angles:
         x: 0
         y: 0
-        z: -2.751493
+        z: -1.556883
       properties:
         - key: stop
           value: ""
-    - id: registed_0_1759821894705031614
+    - id: registed_0_1759821557137442580
       position:
-        x: -47.74478
-        y: 397.7645
+        x: -89.5351
+        y: 514.9744
         z: -3
       euler_angles:
-        x: 8.742256e-08
-        y: -1.509953e-07
-        z: -1.202743
+        x: -0
+        y: -0
+        z: 1.929149
+      properties:
+        - key: stop
+          value: ""
+    - id: registed_0_1758641514191295544
+      position:
+        x: -16.00552
+        y: -9.799905
+        z: -3
+      euler_angles:
+        x: 2.518574e-08
+        y: 3.949713e-08
+        z: 2.281016
+      properties:
+        - key: goal_radius
+          value: 1.000000
+        - key: stop
+          value: ""
+    - id: registed_0_1758641490663084075
+      position:
+        x: -13.29798
+        y: -41.3506
+        z: -3.000002
+      euler_angles:
+        x: -0
+        y: -0
+        z: 1.589448
+      properties:
+        - key: stop
+          value: ""
+    - id: registed_0_1759821410588682471
+      position:
+        x: -47.25647
+        y: 420.0428
+        z: -3.000002
+      euler_angles:
+        x: 0
+        y: 0
+        z: -2.85008
+      properties:
+        - key: stop
+          value: ""
+    - id: registed_0_1759821585827304129
+      position:
+        x: -99.54047
+        y: 555.3797
+        z: -2.999998
+      euler_angles:
+        x: -0
+        y: -0
+        z: 2.545358
+      properties:
+        - key: stop
+          value: ""
+    - id: registed_0_1759820961949811459
+      position:
+        x: 64.50809
+        y: 340.2691
+        z: -3
+      euler_angles:
+        x: -0
+        y: 0
+        z: 0.1372301
       properties:
         - key: stop
           value: ""
@@ -229,15 +1256,161 @@ waypoint_server:
       properties:
         - key: stop
           value: ""
-    - id: registed_0_1759820961949811459
+    - id: registed_0_1759821255963884361
       position:
-        x: 64.50809
-        y: 340.2691
+        x: 37.06244
+        y: 377.0112
+        z: -3
+      euler_angles:
+        x: 0
+        y: 0
+        z: -2.978879
+      properties:
+        - key: stop
+          value: ""
+    - id: registed_0_1759821144691769678
+      position:
+        x: 98.46799
+        y: 431.851
+        z: -3.000004
+      euler_angles:
+        x: 0
+        y: 0
+        z: -2.369935
+      properties:
+        - key: stop
+          value: ""
+    - id: registed_0_1758641291908550259
+      position:
+        x: -95.43317
+        y: -28.99229
+        z: -3
+      euler_angles:
+        x: 0
+        y: 0
+        z: -1.278351
+      properties:
+        - key: stop
+          value: ""
+    - id: registed_0_1759821616829903319
+      position:
+        x: -104.4589
+        y: 559.0291
+        z: -3
+      euler_angles:
+        x: 8.742269e-08
+        y: 1.509959e-07
+        z: -2.852242
+      properties:
+        - key: stop
+          value: ""
+    - id: registed_0_1758640626136618989
+      position:
+        x: -100.6644
+        y: -12.38752
+        z: -3.000004
+      euler_angles:
+        x: 0
+        y: 0
+        z: -1.215176
+      properties:
+        - key: stop
+          value: ""
+    - id: registed_0_1759821369405477523
+      position:
+        x: -36.31708
+        y: 413.8485
+        z: -3
+      euler_angles:
+        x: 4.647109e-08
+        y: 4.710675e-08
+        z: 2.103531
+      properties:
+        - key: stop
+          value: ""
+    - id: registed_0_1759821303717779559
+      position:
+        x: -1.647705
+        y: 362.2194
+        z: -3
+      euler_angles:
+        x: 0
+        y: 0
+        z: -2.890804
+      properties:
+        - key: stop
+          value: ""
+    - id: registed_0_1759822101802579334
+      position:
+        x: -7.760193
+        y: 282.4949
+        z: -3
+      euler_angles:
+        x: 0
+        y: 0
+        z: -2.88884
+      properties:
+        - key: goal_radius
+          value: 1.000000
+        - key: stop
+          value: true
+    - id: registed_0_1759820599320341107
+      position:
+        x: -101.6216
+        y: 191.2837
+        z: -2.999996
+      euler_angles:
+        x: -0
+        y: -0
+        z: 1.856775
+      properties:
+        - key: stop
+          value: ""
+    - id: registed_0_1759821260274913889
+      position:
+        x: 28.93237
+        y: 374.9537
+        z: -3
+      euler_angles:
+        x: 2.744722e-09
+        y: -1.29718e-08
+        z: -2.97894
+      properties:
+        - key: stop
+          value: ""
+    - id: registed_0_1759820741118607774
+      position:
+        x: -55.29099
+        y: 269.3406
         z: -3
       euler_angles:
         x: -0
         y: 0
-        z: 0.1372301
+        z: 0.456762
+      properties:
+        - key: stop
+          value: ""
+    - id: registed_0_1759821894705031614
+      position:
+        x: -47.74469
+        y: 397.7645
+        z: -3
+      euler_angles:
+        x: 8.742256e-08
+        y: -1.509953e-07
+        z: -1.202743
+      properties:
+        - key: stop
+          value: ""
+    - id: registed_0_1759822058812812893
+      position:
+        x: -4.712799
+        y: 283.1551
+        z: -2.999998
+      euler_angles:
+        x: 0
+        y: 0
+        z: -2.751493
       properties:
         - key: stop
           value: ""
@@ -256,7 +1429,7 @@ waypoint_server:
     - id: registed_0_1759820916621061000
       position:
         x: 18.14648
-        y: 326.9002
+        y: 326.9
         z: -3
       euler_angles:
         x: -0
@@ -265,15 +1438,125 @@ waypoint_server:
       properties:
         - key: stop
           value: ""
-    - id: registed_0_1759821573413357910
+    - id: registed_0_1759821633861517472
       position:
-        x: -94.64691
-        y: 538.3698
+        x: -123.9874
+        y: 554.4871
         z: -3
       euler_angles:
-        x: 4.355418e-08
-        y: 2.555998e-08
-        z: 1.851083
+        x: 8.742272e-08
+        y: 1.50996e-07
+        z: -2.894052
+      properties:
+        - key: stop
+          value: ""
+    - id: registed_0_1759848354063951493
+      position:
+        x: -64.67233
+        y: 416.9837
+        z: -2.999998
+      euler_angles:
+        x: 0
+        y: 0
+        z: -1.350936
+      properties:
+        - key: stop
+          value: ""
+    - id: registed_0_1759821537361360066
+      position:
+        x: -85.33844
+        y: 501.0346
+        z: -2.999996
+      euler_angles:
+        x: -0
+        y: -0
+        z: 2.144172
+      properties:
+        - key: stop
+          value: ""
+    - id: registed_0_1759820693828685503
+      position:
+        x: -96.34607
+        y: 257.6484
+        z: -3.000004
+      euler_angles:
+        x: -0
+        y: 0
+        z: 0.2723135
+      properties:
+        - key: stop
+          value: ""
+    - id: registed_0_1758641331677109280
+      position:
+        x: -90.27117
+        y: -49.54675
+        z: -3.000031
+      euler_angles:
+        x: 0
+        y: 0
+        z: -1.297402
+      properties:
+        - key: stop
+          value: ""
+    - id: registed_0_1759822023275393601
+      position:
+        x: -6.666077
+        y: 296.9884
+        z: -3
+      euler_angles:
+        x: 0
+        y: 0
+        z: -1.328403
+      properties:
+        - key: goal_radius
+          value: 1.000000
+        - key: stop
+          value: true
+    - id: registed_0_1759821690162467964
+      position:
+        x: -104.2477
+        y: 558.155
+        z: -3
+      euler_angles:
+        x: -0
+        y: 0
+        z: 0.2343291
+      properties:
+        - key: stop
+          value: ""
+    - id: registed_0_1759821900067792575
+      position:
+        x: -46.16132
+        y: 392.1667
+        z: -3
+      euler_angles:
+        x: 8.742199e-08
+        y: -1.509956e-07
+        z: -1.261151
+      properties:
+        - key: stop
+          value: ""
+    - id: registed_0_1759821530051858969
+      position:
+        x: -82.41589
+        y: 492.5707
+        z: -3
+      euler_angles:
+        x: -0
+        y: -0
+        z: 1.958825
+      properties:
+        - key: stop
+          value: ""
+    - id: registed_0_1758641419225893581
+      position:
+        x: -17.47007
+        y: -78.78084
+        z: -3
+      euler_angles:
+        x: 1.931133e-08
+        y: -4.086402e-08
+        z: 0.3491352
       properties:
         - key: stop
           value: ""
@@ -289,6 +1572,18 @@ waypoint_server:
       properties:
         - key: stop
           value: ""
+    - id: registed_0_1759821573413357910
+      position:
+        x: -94.64691
+        y: 538.3698
+        z: -3
+      euler_angles:
+        x: 4.355418e-08
+        y: 2.555998e-08
+        z: 1.851083
+      properties:
+        - key: stop
+          value: ""
     - id: registed_0_1758693704519129511
       position:
         x: -59.48473
@@ -296,56 +1591,124 @@ waypoint_server:
         z: -3
       euler_angles:
         x: 8.742293e-08
-        y: 8.742206e-08
+        y: 8.742203e-08
         z: 2.334726
       properties:
         - key: stop
           value: ""
-    - id: registed_0_1759821585827304129
+    - id: registed_0_1759822275616491274
       position:
-        x: -99.54053
-        y: 555.3799
-        z: -2.999998
+        x: -95.3291
+        y: 166.7447
+        z: -3.000002
       euler_angles:
-        x: -0
-        y: -0
-        z: 2.545358
+        x: 0
+        y: 0
+        z: -1.332572
       properties:
+        - key: goal_radius
+          value: 1.000000
+        - key: stop
+          value: true
+    - id: registed_0_1759846741104566123
+      position:
+        x: -4.554108
+        y: 307.2652
+        z: -3
+      euler_angles:
+        x: 3.171482e-08
+        y: -1.887344e-10
+        z: 1.700159
+      properties:
+        - key: goal_radius
+          value: 1.0
         - key: stop
           value: ""
-    - id: registed_0_1759821255963884361
+    - id: registed_0_1759822460951147446
       position:
-        x: 37.06244
-        y: 377.0112
+        x: -7.498375
+        y: 91.86475
+        z: -2.999996
+      euler_angles:
+        x: -0
+        y: 0
+        z: 0.4301477
+      properties:
+        - key: stop
+          value: true
+        - key: goal_radius
+          value: 1.000000
+    - id: registed_0_1759821710448854078
+      position:
+        x: -95.94458
+        y: 542.3671
         z: -3
       euler_angles:
         x: 0
         y: 0
-        z: -2.978879
+        z: -1.256916
       properties:
         - key: stop
           value: ""
-    - id: registed_0_1759821369405477523
+    - id: registed_0_1758695044149810460
       position:
-        x: -36.31696
-        y: 413.8485
-        z: -3
+        x: -48.18538
+        y: 39.3459
+        z: -2.999996
       euler_angles:
-        x: 4.647109e-08
-        y: 4.710675e-08
-        z: 2.103531
+        x: -0
+        y: -0
+        z: 1.888274
       properties:
         - key: stop
           value: ""
-    - id: registed_0_1758641419225893581
+    - id: registed_0_1759821764581141903
       position:
-        x: -17.47007
-        y: -78.78084
+        x: -81.43881
+        y: 488.1928
         z: -3
       euler_angles:
-        x: 1.931133e-08
-        y: -4.086402e-08
-        z: 0.3491352
+        x: 0
+        y: 0
+        z: -1.390524
+      properties:
+        - key: stop
+          value: ""
+    - id: registed_0_1759820655008207808
+      position:
+        x: -116.4751
+        y: 241.9443
+        z: -3
+      euler_angles:
+        x: -0
+        y: -0
+        z: 1.645901
+      properties:
+        - key: stop
+          value: ""
+    - id: registed_0_1759822003239408840
+      position:
+        x: -7.653778
+        y: 302.3106
+        z: -3
+      euler_angles:
+        x: 0
+        y: 0
+        z: -1.343133
+      properties:
+        - key: stop
+          value: true
+        - key: goal_radius
+          value: 1.0
+    - id: registed_0_1759822200802827866
+      position:
+        x: -99.42206
+        y: 256.4385
+        z: -3
+      euler_angles:
+        x: 0
+        y: 0
+        z: -2.852845
       properties:
         - key: stop
           value: ""
@@ -364,60 +1727,36 @@ waypoint_server:
     - id: registed_0_1758641524172206105
       position:
         x: -17.66286
-        y: -7.626865
+        y: -7.626869
         z: -3
       euler_angles:
-        x: 5.09189e-08
-        y: 3.935436e-08
+        x: 5.091886e-08
+        y: 3.935439e-08
         z: 1.984037
       properties:
         - key: stop
           value: ""
-    - id: registed_0_1759821690162467964
+    - id: registed_0_1759821343156152020
       position:
-        x: -104.2477
-        y: 558.155
+        x: -26.4454
+        y: 387.9073
         z: -3
       euler_angles:
-        x: -0
-        y: 0
-        z: 0.2343291
-      properties:
-        - key: stop
-          value: ""
-    - id: registed_0_1759821144691769678
-      position:
-        x: 98.46799
-        y: 431.851
-        z: -3.000004
-      euler_angles:
-        x: 0
-        y: 0
-        z: -2.369935
+        x: 5.418438e-08
+        y: 3.588368e-08
+        z: 1.87551
       properties:
         - key: stop
           value: ""
     - id: registed_0_1759846717715573544
       position:
-        x: -4.192566
+        x: -4.192535
         y: 297.0292
         z: -3.000002
       euler_angles:
         x: -0
         y: -0
         z: 1.841794
-      properties:
-        - key: stop
-          value: ""
-    - id: registed_0_1759821343156152020
-      position:
-        x: -26.44534
-        y: 387.9074
-        z: -3
-      euler_angles:
-        x: 5.418438e-08
-        y: 3.588368e-08
-        z: 1.87551
       properties:
         - key: stop
           value: ""
@@ -429,7 +1768,7 @@ waypoint_server:
       euler_angles:
         x: -0
         y: 0
-        z: 0.1700861
+        z: 0.170086
       properties:
         - key: goal_radius
           value: 1.0
@@ -445,18 +1784,6 @@ waypoint_server:
       properties:
         - key: stop
           value: ""
-    - id: registed_0_1759821487394501486
-      position:
-        x: -76.23285
-        y: 463.442
-        z: -3
-      euler_angles:
-        x: 1.633665e-08
-        y: 2.498722e-09
-        z: 1.811248
-      properties:
-        - key: stop
-          value: ""
     - id: registed_0_1758641437045521187
       position:
         x: -10.8786
@@ -467,10 +1794,10 @@ waypoint_server:
         y: -0
         z: 1.695497
       properties:
-        - key: goal_radius
-          value: 1.0
         - key: stop
           value: ""
+        - key: goal_radius
+          value: 1.0
     - id: registed_0_1759822180108365210
       position:
         x: -73.73892
@@ -483,39 +1810,63 @@ waypoint_server:
       properties:
         - key: stop
           value: ""
-    - id: registed_0_1759821616829903319
+    - id: registed_0_1759821487394501486
       position:
-        x: -104.4589
-        y: 559.0291
+        x: -76.23285
+        y: 463.442
         z: -3
       euler_angles:
-        x: 8.742269e-08
-        y: 1.509959e-07
-        z: -2.852242
+        x: 1.633664e-08
+        y: 2.498724e-09
+        z: 1.811248
       properties:
         - key: stop
           value: ""
-    - id: registed_0_1758641291908550259
+    - id: registed_0_1758641498824868628
       position:
-        x: -95.43317
-        y: -28.99229
+        x: -16.9508
+        y: -26.66846
         z: -3
       euler_angles:
-        x: 0
-        y: 0
-        z: -1.278351
+        x: 8.834078e-08
+        y: -3.987644e-08
+        z: 0.7628279
       properties:
         - key: stop
           value: ""
-    - id: registed_0_1759821839202338189
+    - id: registed_0_1759821561720183587
       position:
-        x: -65.2413
-        y: 421.558
+        x: -91.84259
+        y: 523.7057
+        z: -2.999999
+      euler_angles:
+        x: -0
+        y: -0
+        z: 1.861864
+      properties:
+        - key: stop
+          value: ""
+    - id: registed_0_1759820988468071058
+      position:
+        x: 86.07104
+        y: 345.5621
         z: -3
       euler_angles:
-        x: 0
+        x: -0
         y: 0
-        z: -1.275946
+        z: 0.3045274
+      properties:
+        - key: stop
+          value: ""
+    - id: registed_0_1759820911852916775
+      position:
+        x: 13.00861
+        y: 325.6573
+        z: -3
+      euler_angles:
+        x: -0
+        y: 0
+        z: 0.2625532
       properties:
         - key: stop
           value: ""
@@ -543,15 +1894,15 @@ waypoint_server:
       properties:
         - key: goal_radius
           value: 1.0
-    - id: registed_0_1758641351377012650
+    - id: registed_0_1758640207451694483
       position:
-        x: -82.41283
-        y: -77.17943
+        x: -77.19449
+        y: 13.22623
         z: -3
       euler_angles:
-        x: 0
-        y: 0
-        z: -1.374704
+        x: 8.742253e-08
+        y: 1.509958e-07
+        z: -2.870585
       properties:
         - key: stop
           value: ""
@@ -567,60 +1918,82 @@ waypoint_server:
       properties:
         - key: stop
           value: ""
-    - id: registed_0_1758640207451694483
+    - id: registed_0_1759821839202338189
       position:
-        x: -77.19449
-        y: 13.22623
+        x: -65.24136
+        y: 421.558
         z: -3
       euler_angles:
-        x: 8.742253e-08
-        y: 1.509958e-07
-        z: -2.870585
+        x: 0
+        y: 0
+        z: -1.275946
       properties:
         - key: stop
           value: ""
-    - id: registed_0_1759820757102181647
+    - id: registed_0_1758641351377012650
       position:
-        x: -37.33633
-        y: 273.0364
+        x: -82.41283
+        y: -77.17943
+        z: -3
+      euler_angles:
+        x: 0
+        y: 0
+        z: -1.374704
+      properties:
+        - key: stop
+          value: ""
+    - id: registed_0_1758640481792789069
+      position:
+        x: -112.0242
+        y: 0.1918488
+        z: -3
+      euler_angles:
+        x: 0
+        y: 0
+        z: -1.198573
+      properties:
+        - key: stop
+          value: ""
+    - id: registed_0_1759821661755231609
+      position:
+        x: -129.8469
+        y: 548.9396
         z: -3
       euler_angles:
         x: -0
         y: 0
-        z: 0.2332792
+        z: 1.200307
       properties:
         - key: stop
           value: ""
+    - id: registed_0_575899000000
+      position:
+        x: -11.18356
+        y: 305.2224
+        z: -3
+      euler_angles:
+        x: 9.914837e-08
+        y: 4.031004e-08
+        z: -0.6995336
+      properties:
         - key: goal_radius
           value: 1.000000
-    - id: registed_0_1759822268774929423
+    - id: registed_0_1759821520068328816
       position:
-        x: -96.67601
-        y: 173.9383
+        x: -80.38556
+        y: 483.7783
         z: -3
       euler_angles:
-        x: 8.742279e-08
-        y: 8.742279e-08
-        z: -1.410426
-      properties:
-        - key: stop
-          value: ""
-    - id: registed_0_1759822263382513925
-      position:
-        x: -100.4911
-        y: 187.2764
-        z: -3
-      euler_angles:
-        x: 8.742209e-08
-        y: 8.742205e-08
-        z: -1.369903
+        x: -0
+        y: -0
+        z: 1.925429
       properties:
         - key: stop
           value: ""
     - id: registed_0_1759821463054363629
       position:
         x: -63.8656
-        y: 415.1624
+        y: 415.1622
         z: -3
       euler_angles:
         x: -0
@@ -653,922 +2026,34 @@ waypoint_server:
       properties:
         - key: stop
           value: ""
-    - id: registed_0_1758640481792789069
+    - id: registed_0_1759822268774929423
       position:
-        x: -112.0243
-        y: 0.1918564
-        z: -3
-      euler_angles:
-        x: 0
-        y: 0
-        z: -1.198573
-      properties:
-        - key: stop
-          value: ""
-    - id: registed_0_1759821661755231609
-      position:
-        x: -129.847
-        y: 548.9396
-        z: -3
-      euler_angles:
-        x: -0
-        y: 0
-        z: 1.200307
-      properties:
-        - key: stop
-          value: ""
-    - id: registed_0_1759821303717779559
-      position:
-        x: -1.647705
-        y: 362.2194
-        z: -3
-      euler_angles:
-        x: 0
-        y: 0
-        z: -2.890804
-      properties:
-        - key: stop
-          value: ""
-    - id: registed_0_1759820599320341107
-      position:
-        x: -101.6216
-        y: 191.2837
-        z: -2.999996
-      euler_angles:
-        x: -0
-        y: -0
-        z: 1.856775
-      properties:
-        - key: stop
-          value: ""
-    - id: registed_0_1759822101802579334
-      position:
-        x: -7.760193
-        y: 282.4949
-        z: -3
-      euler_angles:
-        x: 0
-        y: 0
-        z: -2.88884
-      properties:
-        - key: stop
-          value: true
-        - key: goal_radius
-          value: 1.000000
-    - id: registed_0_1759821557137442580
-      position:
-        x: -89.53516
-        y: 514.9746
-        z: -3
-      euler_angles:
-        x: -0
-        y: -0
-        z: 1.929149
-      properties:
-        - key: stop
-          value: ""
-    - id: registed_0_1759821877753680361
-      position:
-        x: -50.37976
-        y: 415.4891
-        z: -3
-      euler_angles:
-        x: 0
-        y: 0
-        z: -1.556883
-      properties:
-        - key: stop
-          value: ""
-    - id: registed_0_1758641451264871192
-      position:
-        x: -13.72595
-        y: -67.5353
-        z: -3.000001
-      euler_angles:
-        x: -0
-        y: -0
-        z: 1.759626
-      properties:
-        - key: goal_radius
-          value: 1.000000
-        - key: stop
-          value: ""
-    - id: registed_0_1759821776581107832
-      position:
-        x: -79.59711
-        y: 476.3479
-        z: -2.999998
-      euler_angles:
-        x: 0
-        y: 0
-        z: -1.164022
-      properties:
-        - key: stop
-          value: ""
-        - key: goal_radius
-          value: 1.0
-    - id: registed_0_1759820559900422399
-      position:
-        x: -94.11159
-        y: 160.2414
-        z: -3
-      euler_angles:
-        x: -0
-        y: -0
-        z: 1.922501
-      properties:
-        - key: goal_radius
-          value: 1.0
-        - key: stop
-          value: true
-    - id: registed_0_1759821981589776805
-      position:
-        x: -17.9924
-        y: 307.8174
-        z: -3
-      euler_angles:
-        x: 8.742259e-08
-        y: -1.50996e-07
-        z: -0.228263
-      properties:
-        - key: stop
-          value: ""
-    - id: registed_0_1759821106174643196
-      position:
-        x: 122.5086
-        y: 400.0038
-        z: -3
-      euler_angles:
-        x: 2.942874e-08
-        y: 3.288188e-08
-        z: 2.359431
-      properties:
-        - key: stop
-          value: ""
-    - id: registed_0_1759822049654881470
-      position:
-        x: -3.088898
-        y: 284.4557
-        z: -3
-      euler_angles:
-        x: 0
-        y: 0
-        z: -2.778916
-    - id: registed_0_1759822346014720553
-      position:
-        x: -76.84688
-        y: 103.337
-        z: -3
-      euler_angles:
-        x: 0
-        y: 0
-        z: -1.187561
-    - id: registed_0_1759821330310648326
-      position:
-        x: -23.55841
-        y: 377.333
-        z: -3
-      euler_angles:
-        x: -0
-        y: -0
-        z: 1.973664
-      properties:
-        - key: stop
-          value: ""
-    - id: registed_0_1759822449147401624
-      position:
-        x: -18.49026
-        y: 88.22823
-        z: -3.000004
-      euler_angles:
-        x: -0
-        y: 0
-        z: 0.2395627
-    - id: registed_0_1759821110586928271
-      position:
-        x: 118.4577
-        y: 405.182
-        z: -3
-      euler_angles:
-        x: -0
-        y: -0
-        z: 2.030936
-      properties:
-        - key: stop
-          value: ""
-    - id: registed_0_1759821647977108855
-      position:
-        x: -132.4418
-        y: 549.776
-        z: -3.000002
-      euler_angles:
-        x: 0
-        y: 0
-        z: -0.7606732
-      properties:
-        - key: stop
-          value: ""
-    - id: registed_0_1759821469579503205
-      position:
-        x: -66.00891
-        y: 426.5862
-        z: -2.999996
-      euler_angles:
-        x: -0
-        y: -0
-        z: 1.923038
-      properties:
-        - key: stop
-          value: ""
-    - id: registed_0_1759820911852916775
-      position:
-        x: 13.00854
-        y: 325.6575
-        z: -3
-      euler_angles:
-        x: -0
-        y: 0
-        z: 0.2625532
-      properties:
-        - key: stop
-          value: ""
-    - id: registed_0_1759820988468071058
-      position:
-        x: 86.07104
-        y: 345.5622
-        z: -3
-      euler_angles:
-        x: -0
-        y: 0
-        z: 0.3045274
-      properties:
-        - key: stop
-          value: ""
-    - id: registed_0_1758641388922032064
-      position:
-        x: -58.00994
-        y: -90.04437
-        z: -2.999999
-      euler_angles:
-        x: -0
-        y: 0
-        z: 0.4263254
-      properties:
-        - key: stop
-          value: ""
-    - id: registed_0_1759821955586057166
-      position:
-        x: -23.48816
-        y: 318.2403
-        z: -3
-      euler_angles:
-        x: 0
-        y: 0
-        z: -1.311454
-      properties:
-        - key: stop
-          value: ""
-    - id: registed_0_1759821284360837345
-      position:
-        x: 13.97711
-        y: 370.504
-        z: -2.999996
-      euler_angles:
-        x: 0
-        y: 0
-        z: -2.5252
-      properties:
-        - key: stop
-          value: ""
-    - id: registed_0_1759820741118607774
-      position:
-        x: -55.29099
-        y: 269.3406
-        z: -3
-      euler_angles:
-        x: -0
-        y: 0
-        z: 0.456762
-      properties:
-        - key: stop
-          value: ""
-    - id: registed_0_1759821260274913889
-      position:
-        x: 28.93237
-        y: 374.9537
-        z: -3
-      euler_angles:
-        x: 2.744722e-09
-        y: -1.29718e-08
-        z: -2.97894
-      properties:
-        - key: stop
-          value: ""
-    - id: registed_0_1759820972160733580
-      position:
-        x: 73.04996
-        y: 342.0682
-        z: -3
-      euler_angles:
-        x: -0
-        y: 0
-        z: 0.3993331
-      properties:
-        - key: stop
-          value: ""
-    - id: registed_0_1759822356380538423
-      position:
-        x: -73.20849
-        y: 93.37626
-        z: -3.000002
-      euler_angles:
-        x: 0
-        y: 0
-        z: -1.287857
-      properties:
-        - key: stop
-          value: true
-        - key: goal_radius
-          value: 1.0
-    - id: registed_0_1758641398391686320
-      position:
-        x: -40.22889
-        y: -84.96573
-        z: -3
-      euler_angles:
-        x: -0
-        y: 0
-        z: 0.2914235
-      properties:
-        - key: stop
-          value: ""
-    - id: registed_0_1759820928399932411
-      position:
-        x: 27.7944
-        y: 330.5493
-        z: -3
-      euler_angles:
-        x: -0
-        y: 0
-        z: 0.3028283
-      properties:
-        - key: stop
-          value: ""
-    - id: registed_0_1758641490663084075
-      position:
-        x: -13.29798
-        y: -41.3506
-        z: -3.000002
-      euler_angles:
-        x: -0
-        y: -0
-        z: 1.589448
-      properties:
-        - key: stop
-          value: ""
-    - id: registed_0_1758641514191295544
-      position:
-        x: -16.00552
-        y: -9.799904
-        z: -3
-      euler_angles:
-        x: 2.518574e-08
-        y: 3.949713e-08
-        z: 2.281016
-      properties:
-        - key: stop
-          value: ""
-        - key: goal_radius
-          value: 1.000000
-    - id: registed_0_1759821410588682471
-      position:
-        x: -47.25647
-        y: 420.0428
-        z: -3.000002
-      euler_angles:
-        x: 0
-        y: 0
-        z: -2.85008
-      properties:
-        - key: stop
-          value: ""
-    - id: registed_0_1758640626136618989
-      position:
-        x: -100.6644
-        y: -12.38754
-        z: -3.000004
-      euler_angles:
-        x: 0
-        y: 0
-        z: -1.215176
-      properties:
-        - key: stop
-          value: ""
-    - id: registed_0_1758641374450476201
-      position:
-        x: -66.38194
-        y: -92.60426
-        z: -2.999999
-      euler_angles:
-        x: -0
-        y: 0
-        z: 0.4162142
-      properties:
-        - key: stop
-          value: ""
-    - id: registed_0_1759821157749910352
-      position:
-        x: 92.69113
-        y: 430.3415
-        z: -3
-      euler_angles:
-        x: 0
-        y: 0
-        z: -2.739456
-      properties:
-        - key: stop
-          value: ""
-    - id: registed_0_1759821791934166048
-      position:
-        x: -77.78189
-        y: 468.5374
-        z: -3
-      euler_angles:
-        x: 0
-        y: 0
-        z: -1.141901
-      properties:
-        - key: stop
-          value: ""
-        - key: goal_radius
-          value: 1.000000
-    - id: registed_0_1758693683323412080
-      position:
-        x: -52.21805
-        y: 55.09183
-        z: -2.999996
-      euler_angles:
-        x: -0
-        y: -0
-        z: 1.972002
-      properties:
-        - key: goal_radius
-          value: 1.000000
-        - key: stop
-          value: true
-    - id: registed_0_1759820688693381347
-      position:
-        x: -103.0165
-        y: 255.7345
-        z: -3.000004
-      euler_angles:
-        x: -0
-        y: 0
-        z: 0.3480673
-      properties:
-        - key: stop
-          value: ""
-    - id: registed_0_1759821479729024985
-      position:
-        x: -70.46548
-        y: 446.0969
-        z: -3
-      euler_angles:
-        x: 4.07075e-08
-        y: 2.401563e-08
-        z: 1.929638
-      properties:
-        - key: stop
-          value: ""
-    - id: registed_0_1759821044561320228
-      position:
-        x: 128.4372
-        y: 364.2456
-        z: -3
-      euler_angles:
-        x: -0
-        y: 0
-        z: 0.4548759
-      properties:
-        - key: stop
-          value: ""
-    - id: registed_0_1759821164957732659
-      position:
-        x: 88.37659
-        y: 428.5279
-        z: -3.000004
-      euler_angles:
-        x: 0
-        y: 0
-        z: -2.454963
-      properties:
-        - key: stop
-          value: ""
-    - id: registed_0_1758640572465193646
-      position:
-        x: -109.585
-        y: -4.633522
-        z: -3
-      euler_angles:
-        x: 8.742261e-08
-        y: -1.509958e-07
-        z: -1.21874
-      properties:
-        - key: stop
-          value: ""
-    - id: registed_0_1759820921338624977
-      position:
-        x: 22.56219
-        y: 328.7509
-        z: -3.000004
-      euler_angles:
-        x: -0
-        y: 0
-        z: 0.2842092
-      properties:
-        - key: stop
-          value: ""
-    - id: registed_0_1758694310760242202
-      position:
-        x: -71.15942
-        y: 87.02181
-        z: -3
-      euler_angles:
-        x: -0
-        y: -0
-        z: 1.935485
-      properties:
-        - key: goal_radius
-          value: 1.000000
-        - key: stop
-          value: true
-    - id: registed_0_1758640197034113527
-      position:
-        x: -62.75811
-        y: 17.40845
-        z: -3
-      euler_angles:
-        x: 0
-        y: 0
-        z: -2.852227
-      properties:
-        - key: stop
-          value: ""
-    - id: registed_0_1759820532530773063
-      position:
-        x: -86.41931
-        y: 138.3464
-        z: -3.000004
-      euler_angles:
-        x: -0
-        y: -0
-        z: 1.938735
-      properties:
-        - key: stop
-          value: ""
-    - id: registed_0_1759821520068328816
-      position:
-        x: -80.38556
-        y: 483.7783
-        z: -3
-      euler_angles:
-        x: -0
-        y: -0
-        z: 1.925429
-      properties:
-        - key: stop
-          value: ""
-    - id: registed_0_575899000000
-      position:
-        x: -11.18347
-        y: 305.2224
-        z: -3
-      euler_angles:
-        x: 9.914837e-08
-        y: 4.031004e-08
-        z: -0.6995336
-      properties:
-        - key: goal_radius
-          value: 1.000000
-    - id: registed_0_1759820823203567583
-      position:
-        x: -3.210785
-        y: 279.7625
-        z: -2.999996
-      euler_angles:
-        x: -0
-        y: 0
-        z: 0.305871
-      properties:
-        - key: goal_radius
-          value: 1.0
-        - key: stop
-          value: true
-    - id: registed_0_1759821999743732915
-      position:
-        x: -13.83499
-        y: 306.8458
-        z: -3
-      euler_angles:
-        x: 8.742277e-08
-        y: -1.509958e-07
-        z: -0.4691191
-      properties:
-        - key: stop
-          value: ""
-    - id: registed_0_1759820894362557865
-      position:
-        x: -0.8768311
-        y: 320.7335
-        z: -2.999996
-      euler_angles:
-        x: -0
-        y: 0
-        z: 1.022415
-      properties:
-        - key: stop
-          value: ""
-    - id: registed_0_1759817289927580052
-      position:
-        x: -93.40427
-        y: -36.24259
-        z: -3
-      euler_angles:
-        x: 0
-        y: 0
-        z: -1.288261
-      properties:
-        - key: stop
-          value: ""
-    - id: registed_0_1758640140073072780
-      position:
-        x: -49.03319
-        y: 22.18471
-        z: -3
-      euler_angles:
-        x: 0
-        y: 0
-        z: -2.761852
-      properties:
-        - key: stop
-          value: ""
-    - id: registed_0_1744525850871571040
-      position:
-        x: -12.37181
-        y: 20.93876
-        z: -2.999996
-      euler_angles:
-        x: -0
-        y: -0
-        z: 1.915409
-      properties:
-        - key: stop
-          value: ""
-    - id: registed_0_1759821567053040472
-      position:
-        x: -93.54022
-        y: 531.3492
-        z: -2.999999
-      euler_angles:
-        x: -0
-        y: -0
-        z: 1.867599
-      properties:
-        - key: stop
-          value: ""
-    - id: registed_0_1744525932584876896
-      position:
-        x: -30.04316
-        y: 31.7437
-        z: -3
-      euler_angles:
-        x: 0
-        y: 0
-        z: -2.678922
-      properties:
-        - key: stop
-          value: ""
-    - id: registed_0_1759822427646073151
-      position:
-        x: -58.47792
-        y: 77.06213
-        z: -2.999996
-      euler_angles:
-        x: -0
-        y: 0
-        z: 0.3037271
-    - id: registed_0_1759820644039171990
-      position:
-        x: -113.4958
-        y: 229.8998
-        z: -3
-      euler_angles:
-        x: -0
-        y: -0
-        z: 1.83982
-      properties:
-        - key: stop
-          value: ""
-    - id: registed_0_1759821684746247091
-      position:
-        x: -108.3798
-        y: 557.2944
-        z: -3
-      euler_angles:
-        x: 2.316784e-08
-        y: -4.396907e-08
-        z: 0.3085333
-      properties:
-        - key: stop
-          value: ""
-    - id: registed_0_1759820698947808433
-      position:
-        x: -90.2644
-        y: 258.8978
-        z: -2.999996
-      euler_angles:
-        x: -0
-        y: 0
-        z: 0.4080012
-      properties:
-        - key: stop
-          value: ""
-    - id: registed_0_1759821738703400140
-      position:
-        x: -88.95697
-        y: 511.3526
-        z: -3
-      euler_angles:
-        x: 8.742271e-08
-        y: -1.509957e-07
-        z: -1.182983
-      properties:
-        - key: stop
-          value: ""
-    - id: registed_0_1759821274756312652
-      position:
-        x: 19.13531
-        y: 372.2491
-        z: -2.999996
-      euler_angles:
-        x: 0
-        y: 0
-        z: -2.756489
-      properties:
-        - key: stop
-          value: ""
-    - id: registed_0_1759820941900030529
-      position:
-        x: 43.14645
-        y: 335.0417
-        z: -3
-      euler_angles:
-        x: -0
-        y: 0
-        z: 0.2083028
-      properties:
-        - key: stop
-          value: ""
-    - id: registed_0_1759821704081107114
-      position:
-        x: -97.66272
-        y: 550.8441
-        z: -2.999996
-      euler_angles:
-        x: 0
-        y: 0
-        z: -1.322215
-      properties:
-        - key: stop
-          value: ""
-    - id: registed_0_1759822251114769575
-      position:
-        x: -107.0194
-        y: 212.9498
-        z: -3
-      euler_angles:
-        x: 8.742175e-08
-        y: -1.509953e-07
-        z: -1.460053
-      properties:
-        - key: stop
-          value: ""
-    - id: registed_0_1759822256850851930
-      position:
-        x: -104.351
-        y: 199.0566
-        z: -3
-      euler_angles:
-        x: 8.742278e-08
-        y: 8.742277e-08
-        z: -1.302046
-      properties:
-        - key: stop
-          value: ""
-    - id: 1
-      position:
-        x: -6.525087
-        y: 2.064783
-        z: -3
-      euler_angles:
-        x: 3.067268e-08
-        y: 7.567943e-09
-        z: 1.857235
-      properties:
-        - key: goal_radius
-          value: 1.000000
-        - key: stop
-          value: true
-      connections:
-        - 2
-    - id: registed_0_1759821946000279314
-      position:
-        x: -25.7869
-        y: 325.1873
-        z: -3.000002
-      euler_angles:
-        x: 0
-        y: 0
-        z: -1.196217
-      properties:
-        - key: stop
-          value: ""
-    - id: registed_0_1759820747223879136
-      position:
-        x: -46.88919
-        y: 272.0243
-        z: -3
-      euler_angles:
-        x: -0
-        y: 0
-        z: 0.3490196
-      properties:
-        - key: stop
-          value: ""
-    - id: registed_0_1759821134950842178
-      position:
-        x: 102.8017
-        y: 426.4341
-        z: -3
-      euler_angles:
-        x: -0
-        y: -0
-        z: 2.593888
-      properties:
-        - key: stop
-          value: ""
-    - id: registed_0_1744525877836597312
-      position:
-        x: -17.02273
-        y: 35.73943
-        z: -3
-      euler_angles:
-        x: 0
-        y: 0
-        z: -3.0995
-      properties:
-        - key: stop
-          value: ""
-    - id: registed_0_1759822093846861431
-      position:
-        x: -6.208771
-        y: 282.514
-        z: -3.000002
-      euler_angles:
-        x: 0
-        y: 0
-        z: -2.835634
-      properties:
-        - key: stop
-          value: ""
-    - id: registed_0_1759822232865128797
-      position:
-        x: -115.2589
-        y: 237.5867
+        x: -96.67601
+        y: 173.9383
         z: -3
       euler_angles:
         x: 8.742279e-08
-        y: -1.509962e-07
-        z: -1.323778
+        y: 8.742279e-08
+        z: -1.410426
       properties:
         - key: stop
           value: ""
-    - id: registed_0_1759821755436859707
+    - id: registed_0_1759822263382513925
       position:
-        x: -84.01779
-        y: 497.5364
+        x: -100.4911
+        y: 187.2764
         z: -3
       euler_angles:
-        x: 0
-        y: 0
-        z: -1.35598
+        x: 8.742209e-08
+        y: 8.742205e-08
+        z: -1.369903
       properties:
         - key: stop
           value: ""
     - id: registed_0_1758640233118049916
       position:
         x: -108.7529
-        y: 3.976646
+        y: 3.976669
         z: -3
       euler_angles:
         x: 8.742278e-08
@@ -1579,7 +2064,7 @@ waypoint_server:
           value: ""
     - id: registed_0_1759821350273407371
       position:
-        x: -29.61905
+        x: -29.61911
         y: 398.4075
         z: -3
       euler_angles:
@@ -1610,21 +2095,9 @@ waypoint_server:
         x: 0
         y: 0
         z: -1.192456
-    - id: registed_0_1759821900067792575
-      position:
-        x: -46.16132
-        y: 392.1667
-        z: -3
-      euler_angles:
-        x: 8.742201e-08
-        y: -1.509956e-07
-        z: -1.261151
-      properties:
-        - key: stop
-          value: ""
     - id: registed_0_1759821579391659862
       position:
-        x: -96.19116
+        x: -96.19098
         y: 546.3297
         z: -3
       euler_angles:
@@ -1648,8 +2121,8 @@ waypoint_server:
           value: ""
     - id: registed_0_1759820931839285588
       position:
-        x: 32.87631
-        y: 331.8889
+        x: 32.87634
+        y: 331.8888
         z: -3
       euler_angles:
         x: -0
@@ -1680,10 +2153,10 @@ waypoint_server:
         y: -0
         z: 1.830607
       properties:
-        - key: goal_radius
-          value: 1.000000
         - key: stop
           value: true
+        - key: goal_radius
+          value: 1.000000
     - id: registed_0_1759822288527506770
       position:
         x: -93.08725
@@ -1702,7 +2175,7 @@ waypoint_server:
         y: 249.6002
         z: -3
       euler_angles:
-        x: 8.74219e-08
+        x: 8.742188e-08
         y: -1.509962e-07
         z: -1.396785
       properties:
@@ -1710,12 +2183,12 @@ waypoint_server:
           value: ""
     - id: registed_0_1759836985005001109
       position:
-        x: -1.070679
+        x: -1.070587
         y: 282.0136
         z: -3
       euler_angles:
         x: 1.114563e-07
-        y: 3.62526e-10
+        y: 3.625296e-10
         z: 1.087089
       properties:
         - key: stop
@@ -1746,7 +2219,7 @@ waypoint_server:
           value: ""
     - id: registed_0_1758641303259288621
       position:
-        x: -91.42791
+        x: -91.42792
         y: -43.00443
         z: -3
       euler_angles:
@@ -1756,23 +2229,9 @@ waypoint_server:
       properties:
         - key: stop
           value: ""
-    - id: registed_0_1759821846274770639
-      position:
-        x: -61.52859
-        y: 414.4529
-        z: -3
-      euler_angles:
-        x: -0
-        y: 0
-        z: 0.3221523
-      properties:
-        - key: goal_radius
-          value: 1.0
-        - key: stop
-          value: true
     - id: registed_0_1759820704011599826
       position:
-        x: -82.77484
+        x: -82.77475
         y: 261.1749
         z: -3.000004
       euler_angles:
@@ -1782,6 +2241,20 @@ waypoint_server:
       properties:
         - key: stop
           value: ""
+    - id: registed_0_1759821846274770639
+      position:
+        x: -61.52847
+        y: 414.4527
+        z: -3
+      euler_angles:
+        x: -0
+        y: 0
+        z: 0.3221523
+      properties:
+        - key: stop
+          value: true
+        - key: goal_radius
+          value: 1.0
     - id: registed_0_1759821034176806828
       position:
         x: 118.6397
@@ -1832,7 +2305,7 @@ waypoint_server:
           value: ""
     - id: registed_0_1759820551007696680
       position:
-        x: -91.78673
+        x: -91.78671
         y: 154.2413
         z: -3
       euler_angles:
@@ -1870,7 +2343,7 @@ waypoint_server:
         z: -3
       euler_angles:
         x: 8.742271e-08
-        y: 8.74228e-08
+        y: 8.742278e-08
         z: 1.963645
       properties:
         - key: stop
@@ -1885,14 +2358,14 @@ waypoint_server:
         y: 0
         z: -2.675167
       properties:
-        - key: goal_radius
-          value: 1.000000
         - key: stop
           value: false
+        - key: goal_radius
+          value: 1.000000
     - id: registed_0_1758641534690089351
       position:
         x: -21.38973
-        y: 2.871735
+        y: 2.871733
         z: -3
       euler_angles:
         x: 1.50544e-09
@@ -1932,7 +2405,7 @@ waypoint_server:
         z: -3
       euler_angles:
         x: 2.858613e-08
-        y: 5.828284e-09
+        y: 5.828283e-09
         z: 1.552853
       properties:
         - key: stop
@@ -1963,7 +2436,7 @@ waypoint_server:
           value: ""
     - id: registed_0_1759820887588465324
       position:
-        x: -4.703033
+        x: -4.702942
         y: 318.5417
         z: -3
       euler_angles:
@@ -1985,48 +2458,6 @@ waypoint_server:
       properties:
         - key: stop
           value: ""
-    - id: registed_0_1759822275616491274
-      position:
-        x: -95.3291
-        y: 166.7448
-        z: -3.000002
-      euler_angles:
-        x: 0
-        y: 0
-        z: -1.332572
-      properties:
-        - key: stop
-          value: true
-        - key: goal_radius
-          value: 1.000000
-    - id: registed_0_1759846741104566123
-      position:
-        x: -4.554108
-        y: 307.2652
-        z: -3
-      euler_angles:
-        x: 3.171482e-08
-        y: -1.887362e-10
-        z: 1.700159
-      properties:
-        - key: stop
-          value: ""
-        - key: goal_radius
-          value: 1.0
-    - id: registed_0_1759822460951147446
-      position:
-        x: -7.49836
-        y: 91.86479
-        z: -2.999996
-      euler_angles:
-        x: -0
-        y: 0
-        z: 0.4301477
-      properties:
-        - key: goal_radius
-          value: 1.000000
-        - key: stop
-          value: true
     - id: registed_0_1759821270502941937
       position:
         x: 23.40106
@@ -2069,7 +2500,7 @@ waypoint_server:
         y: 27.17296
         z: -3
       euler_angles:
-        x: 8.742175e-08
+        x: 8.742172e-08
         y: -1.509974e-07
         z: 3.071621
       properties:
@@ -2085,10 +2516,10 @@ waypoint_server:
         y: 0
         z: 0.3029707
       properties:
-        - key: goal_radius
-          value: 1.000000
         - key: stop
           value: true
+        - key: goal_radius
+          value: 1.000000
     - id: registed_0_1759822439546482588
       position:
         x: -47.0239
@@ -2160,7 +2591,7 @@ waypoint_server:
           value: ""
     - id: registed_0_1759821190167735170
       position:
-        x: 70.86258
+        x: 70.86246
         y: 402.2719
         z: -3
       euler_angles:
@@ -2173,7 +2604,7 @@ waypoint_server:
     - id: registed_0_1759822155156376816
       position:
         x: -51.71921
-        y: 269.562
+        y: 269.5619
         z: -3
       euler_angles:
         x: 0
@@ -2192,18 +2623,18 @@ waypoint_server:
         y: 0
         z: -2.912585
       properties:
-        - key: stop
-          value: true
         - key: goal_radius
           value: 1.0
+        - key: stop
+          value: true
     - id: registed_0_592525000000
       position:
         x: -9.540375
         y: 303.8006
         z: -3
       euler_angles:
-        x: 8.742265e-08
-        y: -8.742272e-08
+        x: 8.742263e-08
+        y: -8.742269e-08
         z: -0.8060384
       properties:
         - key: goal_radius
@@ -2222,8 +2653,8 @@ waypoint_server:
           value: ""
     - id: registed_0_1759821926026649955
       position:
-        x: -33.92966
-        y: 351.8333
+        x: -33.92969
+        y: 351.8332
         z: -3
       euler_angles:
         x: 0
@@ -2234,8 +2665,8 @@ waypoint_server:
           value: ""
     - id: registed_0_1759820937612433409
       position:
-        x: 37.77591
-        y: 333.3062
+        x: 37.77588
+        y: 333.3061
         z: -3
       euler_angles:
         x: -0
@@ -2254,14 +2685,14 @@ waypoint_server:
         y: 0
         z: -2.75654
       properties:
-        - key: goal_radius
-          value: 1.000000
         - key: stop
           value: true
+        - key: goal_radius
+          value: 1.000000
     - id: registed_0_1759821939234522009
       position:
-        x: -28.46747
-        y: 333.1707
+        x: -28.46753
+        y: 333.1706
         z: -3
       euler_angles:
         x: 8.742264e-08
@@ -2341,7 +2772,7 @@ waypoint_server:
           value: ""
     - id: registed_0_1759821873036278462
       position:
-        x: -52.49429
+        x: -52.49411
         y: 417.2117
         z: -3
       euler_angles:
@@ -2353,7 +2784,7 @@ waypoint_server:
           value: ""
     - id: registed_0_1759821641189438895
       position:
-        x: -130.0132
+        x: -130.0131
         y: 552.8436
         z: -3
       euler_angles:
@@ -2369,8 +2800,8 @@ waypoint_server:
         y: 557.2827
         z: -3
       euler_angles:
-        x: 8.742167e-08
-        y: 1.509992e-07
+        x: 8.742163e-08
+        y: 1.509993e-07
         z: -2.849271
       properties:
         - key: stop
@@ -2425,8 +2856,8 @@ waypoint_server:
           value: ""
     - id: registed_0_1759820952040340419
       position:
-        x: 58.24475
-        y: 338.67
+        x: 58.24466
+        y: 338.6699
         z: -3
       euler_angles:
         x: -0
@@ -2501,8 +2932,8 @@ waypoint_server:
         y: 364.4882
         z: -3
       euler_angles:
-        x: 1.10168e-08
-        y: -4.484762e-08
+        x: 1.101681e-08
+        y: -4.48476e-08
         z: -2.600844
       properties:
         - key: stop
@@ -2541,10 +2972,10 @@ waypoint_server:
         y: -0
         z: 1.85765
       properties:
-        - key: goal_radius
-          value: 1.0
         - key: stop
           value: ""
+        - key: goal_radius
+          value: 1.0
     - id: registed_0_1759822398302566909
       position:
         x: -65.51784
@@ -2560,8 +2991,8 @@ waypoint_server:
         y: 252.4744
         z: -3
       euler_angles:
-        x: 8.742175e-08
-        y: 1.509989e-07
+        x: 8.742172e-08
+        y: 1.50999e-07
         z: -2.518731
       properties:
         - key: stop
@@ -2573,26 +3004,26 @@ waypoint_server:
         z: -3
       euler_angles:
         x: 3.907619e-08
-        y: -7.356001e-10
+        y: -7.355984e-10
         z: 1.44499
       properties:
         - key: stop
           value: ""
     - id: registed_0_471839000000
       position:
-        x: -51.31805
+        x: -51.31804
         y: 51.19382
         z: -3
       euler_angles:
         x: 1.250834e-08
-        y: -1.26565e-09
+        y: -1.265652e-09
         z: 1.829446
       properties:
         - key: goal_radius
           value: 1.000000
     - id: registed_0_1759821882974619230
       position:
-        x: -50.01849
+        x: -50.01837
         y: 408.6015
         z: -3
       euler_angles:
@@ -2636,10 +3067,10 @@ waypoint_server:
         y: 0
         z: -2.888407
       properties:
-        - key: stop
-          value: ""
         - key: goal_radius
           value: 1.000000
+        - key: stop
+          value: ""
     - id: registed_0_1758641444293095646
       position:
         x: -11.16712
@@ -2647,17 +3078,17 @@ waypoint_server:
         z: -3
       euler_angles:
         x: 1.75228e-08
-        y: 2.556299e-08
+        y: 2.556301e-08
         z: 2.187007
       properties:
-        - key: goal_radius
-          value: 1.000000
         - key: stop
           value: ""
+        - key: goal_radius
+          value: 1.000000
     - id: registed_0_1758640587954628168
       position:
         x: -107.1543
-        y: -11.03294
+        y: -11.03297
         z: -3
       euler_angles:
         x: 4.979777e-10
@@ -2669,7 +3100,7 @@ waypoint_server:
     - id: registed_0_268278000000
       position:
         x: -35.35834
-        y: 273.3235
+        y: 273.3234
         z: -3
       euler_angles:
         x: -0
@@ -2684,8 +3115,8 @@ waypoint_server:
         y: 69.34615
         z: -3
       euler_angles:
-        x: 5.635066e-08
-        y: 4.058752e-08
+        x: 5.635062e-08
+        y: 4.058753e-08
         z: 1.933242
       properties:
         - key: stop
@@ -2704,8 +3135,8 @@ waypoint_server:
           value: ""
     - id: registed_0_1759820904190150122
       position:
-        x: 8.731689
-        y: 324.5905
+        x: 8.73172
+        y: 324.5904
         z: -3
       euler_angles:
         x: -0
@@ -2729,7 +3160,7 @@ waypoint_server:
     - id: registed_0_1759822190690875436
       position:
         x: -86.32257
-        y: 260.1418
+        y: 260.1417
         z: -3
       euler_angles:
         x: 0
@@ -2785,7 +3216,7 @@ waypoint_server:
         z: -1.291378
     - id: registed_0_1759846728564649964
       position:
-        x: -4.322266
+        x: -4.322357
         y: 302.4682
         z: -3
       euler_angles:
@@ -2809,7 +3240,7 @@ waypoint_server:
           value: ""
     - id: registed_0_1759821313330290829
       position:
-        x: -16.16885
+        x: -16.16895
         y: 359.7233
         z: -2.999996
       euler_angles:
@@ -2821,7 +3252,7 @@ waypoint_server:
           value: ""
     - id: registed_0_1759821910245587552
       position:
-        x: -41.72638
+        x: -41.72632
         y: 377.4063
         z: -3
       euler_angles:
@@ -2838,7 +3269,7 @@ waypoint_server:
         z: -3
       euler_angles:
         x: 1.196597e-08
-        y: -7.276313e-09
+        y: -7.276312e-09
         z: 1.739495
       properties:
         - key: stop
@@ -2846,7 +3277,7 @@ waypoint_server:
     - id: registed_0_1759821017607182992
       position:
         x: 113.4275
-        y: 355.4334
+        y: 355.4333
         z: -3
       euler_angles:
         x: -0
@@ -2885,8 +3316,8 @@ waypoint_server:
         y: 34.30396
         z: -3
       euler_angles:
-        x: 5.148778e-08
-        y: 2.634588e-08
+        x: 5.148775e-08
+        y: 2.634589e-08
         z: 1.888698
       properties:
         - key: stop
@@ -2941,8 +3372,8 @@ waypoint_server:
           value: ""
     - id: registed_0_1759821403629460467
       position:
-        x: -40.4108
-        y: 420.601
+        x: -40.41074
+        y: 420.6008
         z: -3
       euler_angles:
         x: 0
@@ -2965,8 +3396,8 @@ waypoint_server:
           value: ""
     - id: registed_0_1759820946913510982
       position:
-        x: 50.04901
-        y: 336.739
+        x: 50.04889
+        y: 336.7389
         z: -3
       euler_angles:
         x: -0
@@ -2977,8 +3408,8 @@ waypoint_server:
           value: ""
     - id: registed_0_1759821306905246844
       position:
-        x: -7.334412
-        y: 360.2091
+        x: -7.334442
+        y: 360.209
         z: -2.999996
       euler_angles:
         x: -0
@@ -3001,8 +3432,8 @@ waypoint_server:
           value: ""
     - id: registed_0_1759820878090897798
       position:
-        x: -5.343628
-        y: 314.7809
+        x: -5.343658
+        y: 314.7807
         z: -2.999996
       euler_angles:
         x: -0
@@ -3013,8 +3444,8 @@ waypoint_server:
           value: ""
     - id: registed_0_1759822453857665797
       position:
-        x: -11.30296
-        y: 90.62373
+        x: -11.30297
+        y: 90.62371
         z: -3
       euler_angles:
         x: -0
@@ -3022,8 +3453,8 @@ waypoint_server:
         z: 0.3978128
     - id: registed_0_1759820814919646969
       position:
-        x: -8.909241
-        y: 278.6049
+        x: -8.909271
+        y: 278.6048
         z: -3.000004
       euler_angles:
         x: -0
@@ -3034,7 +3465,7 @@ waypoint_server:
           value: ""
     - id: registed_0_1759820542983138424
       position:
-        x: -88.60429
+        x: -88.60426
         y: 146.1758
         z: -3
       euler_angles:
@@ -3047,7 +3478,7 @@ waypoint_server:
     - id: registed_0_1759821812414100773
       position:
         x: -69.42188
-        y: 441.4521
+        y: 441.452
         z: -3
       euler_angles:
         x: 8.742258e-08
@@ -3058,8 +3489,8 @@ waypoint_server:
           value: ""
     - id: registed_0_1759821198504416081
       position:
-        x: 66.37314
-        y: 392.4956
+        x: 66.37305
+        y: 392.4955
         z: -3
       euler_angles:
         x: 0
@@ -3070,7 +3501,7 @@ waypoint_server:
           value: ""
     - id: registed_0_1759821960450532757
       position:
-        x: -20.54645
+        x: -20.54654
         y: 312.1386
         z: -3
       euler_angles:
@@ -3078,10 +3509,10 @@ waypoint_server:
         y: 0
         z: -0.5457603
       properties:
-        - key: stop
-          value: ""
         - key: goal_radius
           value: 1.0
+        - key: stop
+          value: ""
     - id: registed_0_1759820664161728382
       position:
         x: -116.8335
@@ -3097,7 +3528,7 @@ waypoint_server:
     - id: registed_0_1759821717550046347
       position:
         x: -94.14105
-        y: 534.9677
+        y: 534.9675
         z: -3
       euler_angles:
         x: 0
@@ -3108,435 +3539,13 @@ waypoint_server:
           value: ""
     - id: registed_0_1759821933197131595
       position:
-        x: -30.84714
-        y: 341.2279
+        x: -30.84717
+        y: 341.2278
         z: -3
       euler_angles:
         x: 0
         y: 0
         z: -1.151945
-      properties:
-        - key: stop
-          value: ""
-    - id: registed_0_1759820717119924062
-      position:
-        x: -70.18085
-        y: 264.5656
-        z: -3.000004
-      euler_angles:
-        x: -0
-        y: 0
-        z: 0.3611629
-      properties:
-        - key: stop
-          value: ""
-    - id: registed_0_167342000000
-      position:
-        x: -50.69638
-        y: 49.06906
-        z: -3
-      euler_angles:
-        x: -0
-        y: -0
-        z: 1.866565
-      properties:
-        - key: stop
-          value: false
-        - key: goal_radius
-          value: 1.0
-    - id: registed_0_1759821483739059792
-      position:
-        x: -72.52271
-        y: 454.5459
-        z: -3
-      euler_angles:
-        x: 8.742252e-08
-        y: -8.742304e-08
-        z: 1.928614
-      properties:
-        - key: stop
-          value: ""
-    - id: registed_0_1758693596989194850
-      position:
-        x: -33.43933
-        y: 20.75969
-        z: -3
-      euler_angles:
-        x: -0
-        y: -0
-        z: 1.921099
-      properties:
-        - key: stop
-          value: ""
-    - id: 3
-      position:
-        x: -10.35076
-        y: 14.1976
-        z: -3
-      euler_angles:
-        x: -0
-        y: -0
-        z: 1.813308
-      properties:
-        - key: stop
-          value: ""
-      connections:
-        - 1
-    - id: registed_0_1758641344933789035
-      position:
-        x: -84.734
-        y: -70.17514
-        z: -3
-      euler_angles:
-        x: 0
-        y: 0
-        z: -1.106591
-      properties:
-        - key: stop
-          value: ""
-    - id: registed_0_319853000000
-      position:
-        x: -32.33362
-        y: 273.8125
-        z: -3
-      euler_angles:
-        x: 8.742269e-08
-        y: -8.742288e-08
-        z: 0.2391914
-      properties:
-        - key: goal_radius
-          value: 1.000000
-    - id: registed_0_1759820590626440530
-      position:
-        x: -99.48602
-        y: 183.2577
-        z: -3
-      euler_angles:
-        x: 3.532905e-08
-        y: 1.790033e-08
-        z: 1.964981
-      properties:
-        - key: stop
-          value: ""
-    - id: registed_0_1759822445052500846
-      position:
-        x: -33.64724
-        y: 84.04196
-        z: -3.000004
-      euler_angles:
-        x: -0
-        y: 0
-        z: 0.3227401
-    - id: registed_0_1759821000244057487
-      position:
-        x: 103.1936
-        y: 350.5379
-        z: -3
-      euler_angles:
-        x: -0
-        y: 0
-        z: 0.7393423
-      properties:
-        - key: stop
-          value: ""
-    - id: registed_0_1759821905685781951
-      position:
-        x: -43.96936
-        y: 384.709
-        z: -3
-      euler_angles:
-        x: 0
-        y: 0
-        z: -1.302602
-      properties:
-        - key: stop
-          value: ""
-    - id: registed_0_1759820710357161409
-      position:
-        x: -77.4585
-        y: 262.6447
-        z: -3.000004
-      euler_angles:
-        x: -0
-        y: 0
-        z: 0.2399019
-      properties:
-        - key: stop
-          value: ""
-    - id: registed_0_1759820984643738304
-      position:
-        x: 78.76196
-        y: 344.0893
-        z: -3
-      euler_angles:
-        x: 3.304143e-08
-        y: -6.951701e-08
-        z: 0.1523131
-      properties:
-        - key: stop
-          value: ""
-    - id: registed_0_1758641337038883304
-      position:
-        x: -88.40828
-        y: -56.11327
-        z: -3
-      euler_angles:
-        x: 0
-        y: 0
-        z: -1.336125
-      properties:
-        - key: stop
-          value: ""
-    - id: registed_0_1759821914913515383
-      position:
-        x: -38.78864
-        y: 368.6386
-        z: -3
-      euler_angles:
-        x: 0
-        y: 0
-        z: -1.284543
-      properties:
-        - key: stop
-          value: ""
-    - id: registed_0_1759821834404268934
-      position:
-        x: -66.91962
-        y: 432.3568
-        z: -2.999996
-      euler_angles:
-        x: 0
-        y: 0
-        z: -1.435461
-      properties:
-        - key: stop
-          value: ""
-    - id: registed_0_1759821322606713525
-      position:
-        x: -20.5885
-        y: 368.4602
-        z: -3
-      euler_angles:
-        x: -0
-        y: -0
-        z: 1.893103
-      properties:
-        - key: stop
-          value: ""
-    - id: registed_0_1758712299775225648
-      position:
-        x: -83.37546
-        y: -86.71041
-        z: -3
-      euler_angles:
-        x: 0
-        y: 0
-        z: -1.163617
-      properties:
-        - key: stop
-          value: ""
-    - id: registed_0_1758641506977647425
-      position:
-        x: -12.52618
-        y: -21.10461
-        z: -3
-      euler_angles:
-        x: -0
-        y: -0
-        z: 1.87339
-      properties:
-        - key: stop
-          value: ""
-    - id: registed_0_1759822165784455011
-      position:
-        x: -66.30637
-        y: 265.1971
-        z: -3
-      euler_angles:
-        x: 8.74228e-08
-        y: 1.509957e-07
-        z: -2.878487
-      properties:
-        - key: stop
-          value: ""
-    - id: registed_0_1759820764688067901
-      position:
-        x: -30.77393
-        y: 274.0677
-        z: -3.000003
-      euler_angles:
-        x: -0
-        y: 0
-        z: 0.2726156
-      properties:
-        - key: goal_radius
-          value: 1.0
-        - key: stop
-          value: true
-    - id: registed_0_1759821361680549319
-      position:
-        x: -33.85141
-        y: 409.4137
-        z: -3
-      euler_angles:
-        x: -0
-        y: -0
-        z: 2.060616
-      properties:
-        - key: stop
-          value: ""
-    - id: registed_0_1758641541995757239
-      position:
-        x: -26.9114
-        y: 2.311689
-        z: -3
-      euler_angles:
-        x: -0
-        y: -0
-        z: 1.934212
-      properties:
-        - key: stop
-          value: ""
-    - id: registed_0_1759822338133787544
-      position:
-        x: -79.4368
-        y: 112.2387
-        z: -3
-      euler_angles:
-        x: 0
-        y: 0
-        z: -1.267225
-    - id: registed_0_1759821175317437424
-      position:
-        x: 51.81305
-        y: 380.9334
-        z: -3
-      euler_angles:
-        x: 0
-        y: 0
-        z: -2.54421
-      properties:
-        - key: stop
-          value: ""
-    - id: registed_0_1759821505974582958
-      position:
-        x: -79.52164
-        y: 476.4907
-        z: -3.000002
-      euler_angles:
-        x: -0
-        y: -0
-        z: 1.840539
-      properties:
-        - key: stop
-          value: ""
-        - key: goal_radius
-          value: 1.000000
-    - id: registed_0_1759822149037443891
-      position:
-        x: -44.17307
-        y: 271.5452
-        z: -3
-      euler_angles:
-        x: 0
-        y: 0
-        z: -2.847633
-      properties:
-        - key: stop
-          value: ""
-    - id: registed_0_1759821115752678535
-      position:
-        x: 113.851
-        y: 412.2689
-        z: -3
-      euler_angles:
-        x: -0
-        y: -0
-        z: 2.164102
-      properties:
-        - key: stop
-          value: ""
-    - id: registed_0_1759821180426224521
-      position:
-        x: 77.61227
-        y: 415.739
-        z: -3
-      euler_angles:
-        x: 0
-        y: 0
-        z: -2.02081
-      properties:
-        - key: stop
-          value: ""
-    - id: registed_0_1759821889460486939
-      position:
-        x: -49.19583
-        y: 403.3148
-        z: -3
-      euler_angles:
-        x: 8.742208e-08
-        y: -1.509958e-07
-        z: -1.300567
-      properties:
-        - key: stop
-          value: ""
-    - id: registed_0_1759821475611034665
-      position:
-        x: -68.22855
-        y: 437.0841
-        z: -3
-      euler_angles:
-        x: 3.662075e-08
-        y: 2.649844e-08
-        z: 1.952896
-      properties:
-        - key: stop
-          value: ""
-    - id: registed_0_1758641460093999797
-      position:
-        x: -15.49572
-        y: -59.73645
-        z: -3
-      euler_angles:
-        x: -0
-        y: 0
-        z: 1.537176
-      properties:
-        - key: stop
-          value: ""
-    - id: registed_0_1759836407223938111
-      position:
-        x: -19.4761
-        y: -3.31949
-        z: -3
-      euler_angles:
-        x: -0
-        y: -0
-        z: 1.839446
-      properties:
-        - key: stop
-          value: ""
-    - id: registed_0_1759822225169547813
-      position:
-        x: -116.2969
-        y: 245.3372
-        z: -3
-      euler_angles:
-        x: 8.742261e-08
-        y: 8.74228e-08
-        z: -1.525842
-      properties:
-        - key: stop
-          value: ""
-    - id: registed_0_1759821695689475135
-      position:
-        x: -100.7446
-        y: 556.8082
-        z: -3.000002
-      euler_angles:
-        x: 0
-        y: 0
-        z: -0.6061699
       properties:
         - key: stop
           value: ""
