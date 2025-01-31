@@ -15,7 +15,7 @@ waypoint_reconfigure_config:
       end_id: registed_0_1654679091386560710
       properties:
         - key: global_inflation
-          value: 1.3
+          value: 1.9
         - key: local_inflation
           value: 0.2
 #        - key: trajectory_param
