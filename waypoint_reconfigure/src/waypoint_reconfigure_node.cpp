@@ -234,18 +234,9 @@ void change_trajectory_param(const std::string& param_name, double value) {
 }
 
 void change_odom_rot_dev_per_rot_param(const std::string& param_name, double value) {
-    dynamic_reconfigure::ReconfigureRequest srv_req;
-    dynamic_reconfigure::ReconfigureResponse srv_resp;
-    dynamic_reconfigure::DoubleParameter double_param;
-    dynamic_reconfigure::Config config;
+    std::string param_path = "/emcl2_node/" + param_name;
 
-    double_param.name = param_name;
-    double_param.value = value;
-    config.doubles.push_back(double_param);
-
-    srv_req.config = config;
-
-    ros::service::call("/emcl2_node/set_parameters", srv_req, srv_resp);  // TrajectoryPlanner用
+    ros::param::set(param_path, value);
 }
 
 auto main(int argc, char **argv) -> int {
