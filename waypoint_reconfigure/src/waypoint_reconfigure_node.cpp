@@ -38,15 +38,16 @@ namespace {
     static float current_goal_radius = default_goal_radius;
     static Eigen::Vector2f current_position = Eigen::Vector2f::Zero();
     static std::string old_id, file_path_, start_id, end_id, area_name;
-    static float default_global_inflation, default_local_inflation, default_trajectory_limit_vel, default_trajectory_limit_theta;
+    static float default_global_inflation, default_local_inflation, default_trajectory_limit_vel, default_trajectory_limit_theta, default_odom_rot_dev_per_rot;
     static YAML::Node yaml_config;
-    static float global_inflation, local_inflation, trajectory_limit_vel, trajectory_limit_theta;
+    static float global_inflation, local_inflation, trajectory_limit_vel, trajectory_limit_theta, odom_rot_dev_per_rot; //key name
 }
 
 void change_global_inflation_param(const std::string& param_name, double value);
 void change_local_inflation_param(const std::string& param_name, double value);
 void change_local_cost_cloud_param(const std::string& param_name, bool value);
 void change_trajectory_param(const std::string& param_name, double value);  // TrajectoryPlanner用のパラメータ変更関数
+void change_odom_rot_dev_per_rot_param(const std::string& param_name, double value);
 
 void waypointCallback(const waypoint_manager_msgs::Waypoint::ConstPtr &msg) {
     try {
@@ -90,6 +91,9 @@ void waypointCallback(const waypoint_manager_msgs::Waypoint::ConstPtr &msg) {
                             change_trajectory_param("max_vel_theta", default_trajectory_limit_theta);
                             change_trajectory_param("min_vel_theta", default_trajectory_limit_theta * -1.0);
                         }
+                        if (p["key"].as<std::string>() == "odom_rot_dev_per_rot") {
+                            change_odom_rot_dev_per_rot_param("odom_rot_dev_per_rot", default_odom_rot_dev_per_rot);
+                        }                        
                     }
                     is_reconfigure.store(false);
                 }
@@ -129,6 +133,11 @@ void waypointCallback(const waypoint_manager_msgs::Waypoint::ConstPtr &msg) {
                             change_trajectory_param("max_vel_theta", trajectory_limit_theta);
                             change_trajectory_param("min_vel_theta", trajectory_limit_theta * -1.0);
                         }
+                        if (p["key"].as<std::string>() == "odom_rot_dev_per_rot") {
+                            odom_rot_dev_per_rot = p["value"].as<float>();
+                            ROS_WARN("Set odom_rot_dev_per_rot %f", odom_rot_dev_per_rot);
+                            change_odom_rot_dev_per_rot_param("odom_rot_dev_per_rot", odom_rot_dev_per_rot);
+                        }
                     }
                 }
             }
@@ -156,6 +165,7 @@ void readYaml(ros::NodeHandle& private_nh) {
         default_local_inflation = yaml_config["waypoint_reconfigure_config"]["default_local_inflation"].as<float>();
         default_trajectory_limit_vel = yaml_config["waypoint_reconfigure_config"]["default_trajectory_limit_vel"].as<float>();
         default_trajectory_limit_theta = yaml_config["waypoint_reconfigure_config"]["default_trajectory_limit_theta"].as<float>();
+        default_odom_rot_dev_per_rot = yaml_config["waypoint_reconfigure_config"]["default_odom_rot_dev_per_rot"].as<float>();
     }
     catch(const std::exception& e)
     {
@@ -221,6 +231,21 @@ void change_trajectory_param(const std::string& param_name, double value) {
     srv_req.config = config;
 
     ros::service::call("/move_base/TrajectoryPlannerROS/set_parameters", srv_req, srv_resp);  // TrajectoryPlanner用
+}
+
+void change_odom_rot_dev_per_rot_param(const std::string& param_name, double value) {
+    dynamic_reconfigure::ReconfigureRequest srv_req;
+    dynamic_reconfigure::ReconfigureResponse srv_resp;
+    dynamic_reconfigure::DoubleParameter double_param;
+    dynamic_reconfigure::Config config;
+
+    double_param.name = param_name;
+    double_param.value = value;
+    config.doubles.push_back(double_param);
+
+    srv_req.config = config;
+
+    ros::service::call("/emcl2_node/set_parameters", srv_req, srv_resp);  // TrajectoryPlanner用
 }
 
 auto main(int argc, char **argv) -> int {
