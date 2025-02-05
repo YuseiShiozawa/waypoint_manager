@@ -8,6 +8,7 @@ waypoint_reconfigure_config:
   default_trajectory_limit_vel: 1.0 
   default_trajectory_limit_theta: 2.0 
   default_odom_rot_dev_per_rot: 0.2
+  default_odom_rot_dev_per_fw: 0.13
 
   areas:
     - name: "chari_in"
@@ -25,7 +26,9 @@ waypoint_reconfigure_config:
         - key: trajectory_limit_theta
           value: 1.0
         - key: odom_rot_dev_per_rot
-          value: 0.0001          
+          value: 0.0001
+        - key: odom_rot_dev_per_fw
+          value: 0.01           
     - name: "poll_in"
       start_id: registed_0_1654679109649270723
       end_id: registed_0_1654679339324142985
