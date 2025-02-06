@@ -38,9 +38,9 @@ namespace {
     static float current_goal_radius = default_goal_radius;
     static Eigen::Vector2f current_position = Eigen::Vector2f::Zero();
     static std::string old_id, file_path_, start_id, end_id, area_name;
-    static float default_global_inflation, default_local_inflation, default_trajectory_limit_vel, default_trajectory_limit_theta, default_odom_rot_dev_per_rot, default_odom_rot_dev_per_fw;
+    static float default_global_inflation, default_local_inflation, default_trajectory_limit_vel, default_trajectory_limit_theta, default_odom_rot_dev_per_rot, default_odom_rot_dev_per_fw, default_odom_fw_dev_per_rot, default_odom_fw_dev_per_fw;
     static YAML::Node yaml_config;
-    static float global_inflation, local_inflation, trajectory_limit_vel, trajectory_limit_theta, odom_rot_dev_per_rot, odom_rot_dev_per_fw; //key name
+    static float global_inflation, local_inflation, trajectory_limit_vel, trajectory_limit_theta, odom_rot_dev_per_rot, odom_rot_dev_per_fw, odom_fw_dev_per_rot, odom_fw_dev_per_fw; //key name
 }
 
 void change_global_inflation_param(const std::string& param_name, double value);
@@ -49,6 +49,8 @@ void change_local_cost_cloud_param(const std::string& param_name, bool value);
 void change_trajectory_param(const std::string& param_name, double value);  // TrajectoryPlanner用のパラメータ変更関数
 void change_odom_rot_dev_per_rot_param(const std::string& param_name, double value);
 void change_odom_rot_dev_per_fw_param(const std::string& param_name, double value);
+void change_odom_fw_dev_per_rot_param(const std::string& param_name, double value);
+void change_odom_fw_dev_per_fw_param(const std::string& param_name, double value);
 
 void waypointCallback(const waypoint_manager_msgs::Waypoint::ConstPtr &msg) {
     try {
@@ -97,7 +99,13 @@ void waypointCallback(const waypoint_manager_msgs::Waypoint::ConstPtr &msg) {
                         }
                         if (p["key"].as<std::string>() == "odom_rot_dev_per_fw") {
                             change_odom_rot_dev_per_fw_param("odom_rot_dev_per_fw", default_odom_rot_dev_per_fw);
-                        }                          
+                        }
+                        if (p["key"].as<std::string>() == "odom_fw_dev_per_rot") {
+                            change_odom_fw_dev_per_rot_param("odom_fw_dev_per_rot", default_odom_fw_dev_per_rot);
+                        }
+                        if (p["key"].as<std::string>() == "odom_fw_dev_per_fw") {
+                            change_odom_fw_dev_per_fw_param("odom_fw_dev_per_fw", default_odom_fw_dev_per_fw);
+                        }                                        
                     }
                     is_reconfigure.store(false);
                 }
@@ -147,6 +155,16 @@ void waypointCallback(const waypoint_manager_msgs::Waypoint::ConstPtr &msg) {
                             ROS_WARN("Set odom_rot_dev_per_fw %f", odom_rot_dev_per_fw);
                             change_odom_rot_dev_per_fw_param("odom_rot_dev_per_fw", odom_rot_dev_per_fw);
                         }
+                        if (p["key"].as<std::string>() == "odom_fw_dev_per_rot") { // 2
+                            odom_fw_dev_per_rot = p["value"].as<float>();
+                            ROS_WARN("Set odom_fw_dev_per_rot %f", odom_fw_dev_per_rot);
+                            change_odom_fw_dev_per_rot_param("odom_fw_dev_per_rot", odom_fw_dev_per_rot);
+                        }
+                        if (p["key"].as<std::string>() == "odom_fw_dev_per_fw") { // 1
+                            odom_fw_dev_per_fw = p["value"].as<float>();
+                            ROS_WARN("Set odom_fw_dev_per_fw %f", odom_fw_dev_per_fw);
+                            change_odom_fw_dev_per_fw_param("odom_fw_dev_per_fw", odom_fw_dev_per_fw);
+                        }
                     }
                 }
             }
@@ -176,6 +194,8 @@ void readYaml(ros::NodeHandle& private_nh) {
         default_trajectory_limit_theta = yaml_config["waypoint_reconfigure_config"]["default_trajectory_limit_theta"].as<float>();
         default_odom_rot_dev_per_rot = yaml_config["waypoint_reconfigure_config"]["default_odom_rot_dev_per_rot"].as<float>();
         default_odom_rot_dev_per_fw = yaml_config["waypoint_reconfigure_config"]["default_odom_rot_dev_per_fw"].as<float>();
+        default_odom_fw_dev_per_rot = yaml_config["waypoint_reconfigure_config"]["default_odom_fw_dev_per_rot"].as<float>();
+        default_odom_fw_dev_per_fw = yaml_config["waypoint_reconfigure_config"]["default_odom_fw_dev_per_fw"].as<float>();
 
     }
     catch(const std::exception& e)
@@ -251,6 +271,16 @@ void change_odom_rot_dev_per_rot_param(const std::string& param_name, double val
 }
 
 void change_odom_rot_dev_per_fw_param(const std::string& param_name, double value) {
+    std::string param_path = "/emcl2_node/" + param_name;
+
+    ros::param::set(param_path, value);
+}
+void change_odom_fw_dev_per_rot_param(const std::string& param_name, double value) {
+    std::string param_path = "/emcl2_node/" + param_name;
+
+    ros::param::set(param_path, value);
+}
+void change_odom_fw_dev_per_fw_param(const std::string& param_name, double value) {
     std::string param_path = "/emcl2_node/" + param_name;
 
     ros::param::set(param_path, value);
