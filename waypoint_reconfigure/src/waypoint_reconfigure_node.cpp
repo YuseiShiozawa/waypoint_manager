@@ -234,7 +234,7 @@ void change_local_inflation_param(const std::string& param_name, double value) {
     ros::service::call("/move_base/local_costmap/inflation_layer/set_parameters", srv_req, srv_resp);
 }
 
-void change_local_cost_cloud_param(const std::string& param_name, bool value) {
+void change_local_cost_cloud_param(const std::string& param_name, bool value) { // ?
     dynamic_reconfigure::ReconfigureRequest srv_req;
     dynamic_reconfigure::ReconfigureResponse srv_resp;
     dynamic_reconfigure::BoolParameter bool_param;
@@ -246,7 +246,8 @@ void change_local_cost_cloud_param(const std::string& param_name, bool value) {
 
     srv_req.config = config;
 
-    ros::service::call("/move_base/local_costmap/local_cost_cloud_layer/set_parameters", srv_req, srv_resp);
+    ros::service::call("/move_base/local_costmap/obstacle_layer/set_parameters", srv_req, srv_resp);
+    ros::service::call("/move_base/global_costmap/obstacle_layer/set_parameters", srv_req, srv_resp);
 }
 
 void change_trajectory_param(const std::string& param_name, double value) {

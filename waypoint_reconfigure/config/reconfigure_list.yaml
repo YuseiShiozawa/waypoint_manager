@@ -3,10 +3,10 @@ waypoint_reconfigure_config:
   name: "description"
 #  default_dwa_limit_vel: 1.0
   default_local_inflation: 0.20 
-  default_global_inflation: 0.5 
+  default_global_inflation: 1.2 
   default_trajectory_limit_vel: 1.0 
   default_trajectory_limit_theta: 2.0 
-  default_odom_rot_dev_per_rot: 0.2
+  default_odom_rot_dev_per_rot: 0.2 # 以下のパラメータは設定しても意味ない. いつか消す
   default_odom_rot_dev_per_fw: 0.13
   default_odom_fw_dev_per_rot: 0.0001
   default_odom_fw_dev_per_fw: 0.05
@@ -23,7 +23,7 @@ waypoint_reconfigure_config:
           value: 0.3
         - key: trajectory_limit_theta
           value: 1.0
-        - key: odom_rot_dev_per_rot #4
+        - key: odom_rot_dev_per_rot #4 意味ないいつかけす
           value: 0.200 # 0.0001
         - key: odom_rot_dev_per_fw #3
           value: 0.03  # 0.01
@@ -69,6 +69,8 @@ waypoint_reconfigure_config:
       properties:
         - key: global_inflation
           value: 12.0
+        - key: local_cost_cloud
+          value: false
         - key: local_inflation
           value: 0.0
     - name: "chari2_in"
@@ -97,3 +99,5 @@ waypoint_reconfigure_config:
       properties:
         - key: local_inflation
           value: 0
+        - key: local_cost_cloud
+          value: false
