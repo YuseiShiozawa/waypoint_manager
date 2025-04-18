@@ -21,7 +21,7 @@
 #include <std_srvs/Empty.h>
 #include <std_msgs/Bool.h>
 #include <geometry_msgs/PoseWithCovarianceStamped.h>
-
+geometry_msgs::Twist cmd_vel; 
 namespace {
     static std::atomic_bool recived_waypoint, stop_waypoint;
     static float default_goal_radius = 1;
@@ -33,10 +33,17 @@ namespace {
     static std::string old_id;
     static double delta_pose_dist = 0, pose_dist = 0;
     static float vel_x = 0;
-    static float limit_delta_pose_dist = 0.1;
+    static float limit_delta_pose_dist = 1.0;
     static float limit_time = 20;
 }
-
+void CmdVelCallback(const geometry_msgs::Twist::ConstPtr &msg) {
+    try {
+        cmd_vel = *msg;
+    }
+    catch(const std::exception &) {
+        ROS_WARN("Failed cmd_vel");
+    }
+}
 void waypointCallback(const waypoint_manager_msgs::Waypoint::ConstPtr &msg) {
     try {
         // first callback process
@@ -70,10 +77,18 @@ void MclPoseCallback(const geometry_msgs::PoseWithCovarianceStamped::ConstPtr &m
         current_position.x() = msg->pose.pose.position.x;
         current_position.y() = msg->pose.pose.position.y;
 
-        if(recived_waypoint.load()) {
+        /*if(recived_waypoint.load()) {
             delta_pose_dist = std::sqrt(std::pow(current_position.x() - old_current_position.x(), 2) + std::pow(current_position.y() - old_current_position.y(), 2)) * 5.0;
+        }*/
+        if (cmd_vel.linear.x == 0.0) {
+            ROS_INFO("Robot is stopped.");
+            delta_pose_dist = 0.0;
+        } else {
+            ROS_INFO("Robot is moving.");
+            delta_pose_dist = 1.0;
         }
-
+        
+        
         old_current_position = current_position;
     }
     catch(const std::exception &) {
@@ -82,7 +97,7 @@ void MclPoseCallback(const geometry_msgs::PoseWithCovarianceStamped::ConstPtr &m
     }
 }
 
-void CmdVelCallback(const geometry_msgs::Twist::ConstPtr &msg) {
+/*void CmdVelCallback(const geometry_msgs::Twist::ConstPtr &msg) {
     try {
         // is_reached_goal.store(msg->data); 
         vel_x = msg->linear.x;      
@@ -91,7 +106,7 @@ void CmdVelCallback(const geometry_msgs::Twist::ConstPtr &msg) {
         // recived_waypoint.store(false);
         ROS_WARN("Failed cmd_vel");
     }
-}
+}*/
 
 void IsReachedGoalCallback(const std_msgs::Bool::ConstPtr &msg) {
     try {
@@ -191,7 +206,7 @@ auto main(int argc, char **argv) -> int {
     private_nh.param(
         "limit_delta_pose_dist",
         limit_delta_pose_dist,
-        static_cast<float>(0.1)
+        static_cast<float>(0.01) //change
     );
 
     auto loop_rate = ros::Rate(5);
@@ -239,13 +254,21 @@ auto main(int argc, char **argv) -> int {
         }
 
         // check robot delta pose dist
+        /*ROS_INFO_STREAM("delta_pose_dist: " << delta_pose_dist 　
+            << ", vel_x: " << vel_x 
+            << ", is_reached_goal: " << is_reached_goal 
+            << ", time since last moving: " << (time(NULL) - last_moving_time));*/
+        ROS_INFO_STREAM("delta_pose_dist: " << delta_pose_dist);
+
         if (delta_pose_dist <= limit_delta_pose_dist && !is_reached_goal) {
             ROS_INFO("time:%ld, stopped time:%ld\n", time(NULL) - start_time, time(NULL) - last_moving_time);
 
             if (time(NULL) - last_moving_time >= limit_time) {
                 std_srvs::Trigger trigger;
+                std_srvs::Empty empty_service; 
                 if (is_fst_waypoint_reached) {
                     ROS_INFO("Service call PrevWaypoint()");
+                    clear_costmap_service.call(empty_service); //add
                     prev_waypoint_service.call(trigger);
                     is_to_prev_waypoint.store(true);
                     last_moving_time = time(NULL);
