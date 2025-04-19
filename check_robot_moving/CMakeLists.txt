@@ -33,6 +33,9 @@ include_directories(
 add_executable(check_robot_moving_node
     ${CMAKE_CURRENT_SOURCE_DIR}/src/check_robot_moving_node.cpp
 )
+add_executable(check_robot_moving_node2
+    ${CMAKE_CURRENT_SOURCE_DIR}/src/check_robot_moving_node2.cpp
+)
 
 ## Rename C++ executable without prefix
 ## The above recommended prefix causes long target names, the following renames the
@@ -42,6 +45,11 @@ add_executable(check_robot_moving_node
 set_target_properties(check_robot_moving_node
     PROPERTIES
         OUTPUT_NAME check_robot_moving_node
+        VERSION ${PROJECT_VERSION}
+)
+set_target_properties(check_robot_moving_node2
+    PROPERTIES
+        OUTPUT_NAME check_robot_moving_node2
         VERSION ${PROJECT_VERSION}
 )
 
@@ -58,6 +66,14 @@ target_link_libraries(check_robot_moving_node
     ${catkin_LIBRARIES}
 )
 target_compile_features(check_robot_moving_node
+    PRIVATE
+        cxx_std_14
+)
+target_link_libraries(check_robot_moving_node2
+    Eigen3::Eigen
+    ${catkin_LIBRARIES}
+)
+target_compile_features(check_robot_moving_node2
     PRIVATE
         cxx_std_14
 )
