@@ -39,6 +39,8 @@ namespace {
     static const double cmd_vel_timeout_sec = 0.5; // cmd_velがこの秒数届かないと停止とみなす
     static int repeat_waypoint_counter = 0;
     static const int repeat_waypoint_threshold = 2;
+    static int moving_confirm_count = 0;  // 動いていると判定された回数をカウント
+    static const int moving_confirm_threshold = 50; // 連続で3回動いていたらリセットする
 
 }
 // グローバル変数として定義（関数の外に書く）
@@ -194,7 +196,7 @@ int main(int argc, char **argv) {
 
         if (delta_pose_dist <= limit_delta_pose_dist && !is_reached_goal) {
             ROS_INFO("time:%ld, stopped time:%ld\n", time(NULL) - start_time, time(NULL) - last_moving_time);
-
+            moving_confirm_count = 0;
             if (time(NULL) - last_moving_time >= limit_time) {
                 if (is_fst_waypoint_reached) {
                     std_srvs::Trigger trigger;
@@ -219,7 +221,7 @@ int main(int argc, char **argv) {
 
                     is_to_prev_waypoint.store(true);
                     last_moving_time = time(NULL);
-
+                    //repeat_waypoint_counter++;
                     if (repeat_waypoint_counter >= repeat_waypoint_threshold) {
                         ROS_WARN("Repeated Prev→Next twice, force NextWaypoint");
             
@@ -235,7 +237,14 @@ int main(int argc, char **argv) {
             }
         } else {
             last_moving_time = time(NULL);
-            repeat_waypoint_counter = 0;
+            //repeat_waypoint_counter = 0;
+            moving_confirm_count++;
+            ROS_INFO("moving_confirm_count: %d", moving_confirm_count);
+
+            if (moving_confirm_count >= moving_confirm_threshold) {
+                // 連続で動けている場合のみリセット
+                repeat_waypoint_counter = 0;
+            }
         }
 
         loop_rate.sleep();
