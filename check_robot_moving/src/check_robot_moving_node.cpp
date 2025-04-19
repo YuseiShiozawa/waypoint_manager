@@ -37,7 +37,8 @@ namespace {
     static float limit_time = 20;
     static ros::Time last_cmd_vel_time; //add
     static const double cmd_vel_timeout_sec = 0.5; // cmd_velがこの秒数届かないと停止とみなす
-    
+    static int repeat_waypoint_counter = 0;
+    static const int repeat_waypoint_threshold = 2;
 
 }
 // グローバル変数として定義（関数の外に書く）
@@ -207,6 +208,8 @@ int main(int argc, char **argv) {
                         // 次にNextWaypointを即座に呼ぶ
                         ros::Duration(5.0).sleep();  // ちょっと待ってから
                         ROS_INFO("Service call NextWaypoint()");
+                        repeat_waypoint_counter++;
+                        ROS_INFO("repeat_waypoint_counter = %d", repeat_waypoint_counter);
                         if (!next_waypoint_service.call(trigger)) {
                             ROS_WARN("Failed to call NextWaypoint");
                         }
@@ -216,10 +219,23 @@ int main(int argc, char **argv) {
 
                     is_to_prev_waypoint.store(true);
                     last_moving_time = time(NULL);
+
+                    if (repeat_waypoint_counter >= repeat_waypoint_threshold) {
+                        ROS_WARN("Repeated Prev→Next twice, force NextWaypoint");
+            
+                        if (next_waypoint_service.call(trigger)) {
+                            ROS_INFO("Forced NextWaypoint call success");
+                        } else {
+                            ROS_WARN("Forced NextWaypoint call failed");
+                        }
+            
+                        repeat_waypoint_counter = 0;
+                    }
                 }
             }
         } else {
             last_moving_time = time(NULL);
+            repeat_waypoint_counter = 0;
         }
 
         loop_rate.sleep();
