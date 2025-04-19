@@ -31,7 +31,7 @@
       <param name="mcl_pose_topic" value="/amcl_pose" />
       <param name="cmd_vel_topic" value="/icart_mini/cmd_vel" />
       <param name="clear_costmap_srv" value="/move_base/clear_costmaps" />
-      <param name="limit_time" value="60.0" />
+      <param name="limit_time" value="10.0" />
       <param name="limit_delta_pose_dist" value="0.1" />
     </node>   
     <node if="$(arg use_waypoint_reconfigure)" pkg="waypoint_reconfigure" type="waypoint_reconfigure_node" name="waypoint_reconfigure_node" output="$(arg output)">
