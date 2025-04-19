@@ -40,7 +40,7 @@ namespace {
     static int repeat_waypoint_counter = 0;
     static const int repeat_waypoint_threshold = 2;
     static int moving_confirm_count = 0;  // 動いていると判定された回数をカウント
-    static const int moving_confirm_threshold = 50; // 連続で3回動いていたらリセットする
+    static const int moving_confirm_threshold = 50; // 連続で50回動いていたらリセットする
 
 }
 // グローバル変数として定義（関数の外に書く）
@@ -208,7 +208,7 @@ int main(int argc, char **argv) {
                         ROS_INFO("PrevWaypoint call success");
 
                         // 次にNextWaypointを即座に呼ぶ
-                        ros::Duration(5.0).sleep();  // ちょっと待ってから
+                        ros::Duration(3.0).sleep();  // ちょっと待ってから
                         ROS_INFO("Service call NextWaypoint()");
                         repeat_waypoint_counter++;
                         ROS_INFO("repeat_waypoint_counter = %d", repeat_waypoint_counter);
