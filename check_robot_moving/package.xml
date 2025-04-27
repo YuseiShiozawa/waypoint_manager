@@ -56,7 +56,8 @@
   <exec_depend>tf</exec_depend>
   <exec_depend>geometry_msgs</exec_depend>
   <exec_depend>waypoint_manager_msgs</exec_depend>
-
+  <build_depend>costmap_2d</build_depend>
+  <exec_depend>costmap_2d</exec_depend>
   <!-- The export tag contains other, unspecified, tags -->
   <export>
     <!-- Other tools can request additional information be placed here -->
