@@ -14,11 +14,6 @@ waypoint_reconfigure_config:
     - name: "for_test"
       start_id: registed_0_1706866215795912497
       end_id: registed_0_1706866264542383543
-      properties:
-        - key: trajectory_limit_vel
-          value: 1.0
-        - key: trajectory_limit_theta
-          value: 0.1
     - name: "chari_in"
       start_id: registed_0_1654678923563628537
       end_id: registed_0_1654679091386560710
