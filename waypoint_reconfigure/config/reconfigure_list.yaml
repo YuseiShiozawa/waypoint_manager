@@ -15,10 +15,10 @@ waypoint_reconfigure_config:
       start_id: registed_0_1654678923563628537
       end_id: registed_0_1654679091386560710
       properties:
-        - key: global_inflation
-          value: 6.9
-        - key: local_inflation
-          value: 0.4
+ #       - key: global_inflation
+  #        value: 6.9
+   #     - key: local_inflation
+    #      value: 0.4
         - key: trajectory_limit_vel
           value: 0.3
         - key: trajectory_limit_theta
@@ -47,10 +47,10 @@ waypoint_reconfigure_config:
       start_id: registed_0_1654679109649270723
       end_id: registed_0_1654679339324142985
       properties:
-        - key: global_inflation
-          value: 12.9
-        - key: local_inflation
-          value: 0.2
+     #   - key: global_inflation
+       #   value: 12.9
+      #  - key: local_inflation
+        #  value: 0.2
         - key: trajectory_limit_vel
           value: 1.0
         - key: trajectory_limit_theta
@@ -67,20 +67,20 @@ waypoint_reconfigure_config:
       start_id: registed_0_1654679360050734465
       end_id: registed_0_1654679372784500817
       properties:
-        - key: global_inflation
-          value: 12.0
+      #  - key: global_inflation
+       #   value: 12.0
         - key: local_cost_cloud
           value: false
-        - key: local_inflation
-          value: 0.0
+       # - key: local_inflation
+       #   value: 0.0
     - name: "chari2_in"
       start_id: registed_0_1654679372784500817
       end_id: registed_0_1654679737561065550
       properties:
-        - key: global_inflation
-          value: 12.0
-        - key: local_inflation
-          value: 0.1
+     #   - key: global_inflation
+    #      value: 12.0
+     #   - key: local_inflation
+      #    value: 0.1
         - key: trajectory_limit_vel
           value: 0.9
         - key: trajectory_limit_theta
@@ -97,7 +97,7 @@ waypoint_reconfigure_config:
       start_id: registed_0_1654680874107441045
       end_id: registed_0_1706866343072808411
       properties:
-        - key: local_inflation
-          value: 0
+     #   - key: local_inflation
+      #    value: 0
         - key: local_cost_cloud
           value: false
