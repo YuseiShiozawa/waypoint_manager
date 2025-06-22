@@ -12,12 +12,13 @@ find_package(catkin REQUIRED COMPONENTS
     tf
     geometry_msgs
     waypoint_manager_msgs
+    costmap_2d
 )
 
 ## System dependencies are found with CMake's conventions
 # find_package(Boost REQUIRED COMPONENTS system)
 find_package(Eigen3 REQUIRED)
-
+link_directories(${catkin_LIBRARY_DIRS})
 catkin_package(
 #  INCLUDE_DIRS include
 #  LIBRARIES goal_event_handler
@@ -29,7 +30,7 @@ include_directories(
   include
   ${catkin_INCLUDE_DIRS}
 )
-
+add_executable(scan_check_node src/scan_check.cpp) # add
 add_executable(check_robot_moving_node
     ${CMAKE_CURRENT_SOURCE_DIR}/src/check_robot_moving_node.cpp
 )
@@ -61,6 +62,12 @@ set_target_properties(check_robot_moving_node2
 # target_link_libraries(${PROJECT_NAME}_node
 #   ${catkin_LIBRARIES}
 # )
+## Add necessary links for scan_check_node
+target_link_libraries(scan_check_node
+    ${catkin_LIBRARIES}
+    ${catkin_INCLUDE_DIRS}
+    costmap_2d
+)
 target_link_libraries(check_robot_moving_node
     Eigen3::Eigen
     ${catkin_LIBRARIES}
