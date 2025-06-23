@@ -25,7 +25,7 @@ bool checkFrontObstacle(const sensor_msgs::LaserScan::ConstPtr& scan)
     double front_distance = scan->ranges[center_index];
     ROS_INFO("Center range [index %d]: %f", center_index, front_distance);
 
-    return (front_distance < 3.0);  // 1m以内なら障害物と判定
+    return (front_distance < 5.0);  // 1m以内なら障害物と判定
 }
 
 // max_vel_x を変更（不要な再設定は避ける）
@@ -78,7 +78,7 @@ void scanCallback(const sensor_msgs::LaserScan::ConstPtr& scan)
             obstacle_detected = false;
         }
 
-        if ((ros::Time::now() - last_obstacle_time).toSec() > 5.0)
+        if ((ros::Time::now() - last_obstacle_time).toSec() > 10.0)
         {
             ROS_INFO("5 seconds passed without obstacle, restoring max_vel_x to 1.0");
             setMaxVelX(1.0);  // 元の速度に戻す
