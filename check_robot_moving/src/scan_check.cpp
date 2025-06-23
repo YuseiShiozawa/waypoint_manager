@@ -23,9 +23,9 @@ bool checkFrontObstacle(const sensor_msgs::LaserScan::ConstPtr& scan)
     }
 
     double front_distance = scan->ranges[center_index];
-    ROS_INFO("Center range [index %d]: %f", center_index, front_distance);
+  //  ROS_INFO("Center range [index %d]: %f", center_index, front_distance);
 
-    return (front_distance < 5.0);  // 1m以内なら障害物と判定
+    return (front_distance < 8.0);  // 1m以内なら障害物と判定
 }
 
 // max_vel_x を変更（不要な再設定は避ける）
@@ -46,7 +46,7 @@ void setMaxVelX(double value)
 
     if (dynamic_client.call(req, res))
     {
-        ROS_INFO("Max velocity updated successfully to %f", value);
+ //       ROS_INFO("Max velocity updated successfully to %f", value);
         current_vel_x = value;
     }
     else
@@ -66,8 +66,8 @@ void scanCallback(const sensor_msgs::LaserScan::ConstPtr& scan)
         {
             last_obstacle_time = ros::Time::now();  // 障害物検出時刻を記録
             obstacle_detected = true;
-            ROS_INFO("Obstacle detected, stopping!");
-            setMaxVelX(0.3);  // 速度制限
+   //         ROS_INFO("Obstacle detected, stopping!");
+            setMaxVelX(0.5);  // 速度制限
         }
     }
     else
@@ -78,9 +78,9 @@ void scanCallback(const sensor_msgs::LaserScan::ConstPtr& scan)
             obstacle_detected = false;
         }
 
-        if ((ros::Time::now() - last_obstacle_time).toSec() > 10.0)
+        if ((ros::Time::now() - last_obstacle_time).toSec() > 7.0)
         {
-            ROS_INFO("5 seconds passed without obstacle, restoring max_vel_x to 1.0");
+          //  ROS_INFO("5 seconds passed without obstacle, restoring max_vel_x to 1.0");
             setMaxVelX(1.0);  // 元の速度に戻す
         }
     }
