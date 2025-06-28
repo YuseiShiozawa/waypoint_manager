@@ -19,17 +19,9 @@
 #include <std_srvs/Trigger.h>
 #include <std_srvs/Empty.h>
 #include <geometry_msgs/PoseWithCovarianceStamped.h>
-#include <dynamic_reconfigure/Reconfigure.h>
-#include <dynamic_reconfigure/DoubleParameter.h>
-#include <dynamic_reconfigure/Config.h>
-#include <dynamic_reconfigure/server.h>
 
 geometry_msgs::Twist cmd_vel;
-dynamic_reconfigure::ReconfigureRequest req;
-dynamic_reconfigure::ReconfigureResponse res;
 
-dynamic_reconfigure::DoubleParameter double_param;
-dynamic_reconfigure::Config config;
 namespace {
     static std::atomic_bool recived_waypoint, stop_waypoint;
     static float default_goal_radius = 1;
@@ -48,30 +40,10 @@ namespace {
     static int repeat_waypoint_counter = 0;
     static const int repeat_waypoint_threshold = 2;
     static int moving_confirm_count = 0;  // 動いていると判定された回数をカウント
+    static int clear_count = 0;
     static const int moving_confirm_threshold = 50; // 連続で50回動いていたらリセットする
 
-
-    
 }
-void init_dynamic_params()
-{
-    // 初期化はこの関数で行う
-    double_param.name = "max_vel_x";
-    double_param.value = 0.0; //変更後
-
-    // 設定を構成に追加
-    config.doubles.push_back(double_param);
-    req.config = config;
-}
-// Configに追加 add
-
-
-// リクエストにセット add 
-
-
-// サービスクライアント経由でコール add
-
-
 // グローバル変数として定義（関数の外に書く）
 ros::Time last_mcl_pose_time = ros::Time(0);
 
@@ -122,18 +94,18 @@ void MclPoseCallback(const geometry_msgs::PoseWithCovarianceStamped::ConstPtr &m
         
         double time_since_last_cmd_vel = (current_time - last_cmd_vel_time).toSec(); //add
         if (cmd_vel.linear.x == 0.0 || time_since_last_cmd_vel > cmd_vel_timeout_sec) {
-            ROS_INFO("Robot is stopped.");
-            ROS_INFO("time_since_last_cmd_vel: %f, cmd_vel_timeout_sec: %f", time_since_last_cmd_vel, cmd_vel_timeout_sec);
+         //   ROS_INFO("Robot is stopped.");
+         //   ROS_INFO("time_since_last_cmd_vel: %f, cmd_vel_timeout_sec: %f", time_since_last_cmd_vel, cmd_vel_timeout_sec);
             delta_pose_dist = 0.0;
         } else {
-            ROS_INFO("Robot is moving.");
-            ROS_INFO("time_since_last_cmd_vel: %f, cmd_vel_timeout_sec: %f", time_since_last_cmd_vel, cmd_vel_timeout_sec);
+         //   ROS_INFO("Robot is moving.");
+         //   ROS_INFO("time_since_last_cmd_vel: %f, cmd_vel_timeout_sec: %f", time_since_last_cmd_vel, cmd_vel_timeout_sec);
             delta_pose_dist = 1.0;
         }
         //ROS_INFO("time_since_last_cmd_vel: %f, cmd_vel_timeout_sec: %f", time_since_last_cmd_vel, cmd_vel_timeout_sec);
         old_current_position = current_position;
     } catch (const std::exception &) {
-        ROS_WARN("Failed mcl_pose");
+  //      ROS_WARN("Failed mcl_pose");
     }
 }
 
@@ -142,7 +114,7 @@ ros::Duration mcl_pose_timeout(1.0); // 1秒以上来てなければ無効
 void checkMclPoseTimeout(const ros::TimerEvent&) {
     ros::Duration time_since_last_pose = ros::Time::now() - last_mcl_pose_time;
     if (time_since_last_pose > mcl_pose_timeout) {
-        ROS_WARN("MCL pose timeout! Robot is considered stopped.");
+//        ROS_WARN("MCL pose timeout! Robot is considered stopped.");
         delta_pose_dist = 0.0;
     } else {
         // 動いている前提のロジックで計算（例えば odom などを使う）
@@ -154,17 +126,14 @@ void IsReachedGoalCallback(const std_msgs::Bool::ConstPtr &msg) {
     try {
         is_reached_goal.store(msg->data);
     } catch (const std::exception &) {
-        ROS_WARN("Failed is_reached_goal");
+     //   ROS_WARN("Failed is_reached_goal");
     }
 }
 
 int main(int argc, char **argv) {
     ros::init(argc, argv, "check_robot_moving_node");
-    init_dynamic_params();
     ros::NodeHandle nh, private_nh("~");
     ros::Time last_mcl_pose_time; //add
-    ros::ServiceClient dynamic_client = nh.serviceClient<dynamic_reconfigure::Reconfigure>("/move_base/TrajectoryPlannerROS/set_parameters");
-    //ros::init(argc, argv, "check_robot_moving_node");
 
     std::string goal_topic, waypoint_topic, is_reached_goal_topic;
     std::string mcl_pose_topic, cmd_vel_topic, clear_costmap_srv;
@@ -211,7 +180,7 @@ int main(int argc, char **argv) {
         ros::spinOnce();
 
         if (!recived_waypoint.load()) {
-            ROS_INFO("Waiting waypoint check_moving_node");
+       //     ROS_INFO("Waiting waypoint check_moving_node");
             ros::Duration(1.0).sleep();
             last_moving_time = time(NULL);
             continue;
@@ -221,29 +190,43 @@ int main(int argc, char **argv) {
             std_srvs::Empty data;
             clear_costmap_service.call(data);
             is_to_prev_waypoint.store(false);
-            ROS_WARN("Clear Costmaps");
+         //   ROS_WARN("Clear Costmaps");
         }
         //delta_pose_dist = 0.0; //add
-        ROS_INFO_STREAM("delta_pose_dist: " << delta_pose_dist);
+       /// ROS_INFO_STREAM("delta_pose_dist: " << delta_pose_dist);
 
         if (delta_pose_dist <= limit_delta_pose_dist && !is_reached_goal) {
-            ROS_INFO("time:%ld, stopped time:%ld\n", time(NULL) - start_time, time(NULL) - last_moving_time);
+            //ROS_INFO("time:%ld, stopped time:%ld\n", time(NULL) - start_time, time(NULL) - last_moving_time);
             moving_confirm_count = 0;
+            //clear_count = 0;
+            if (time(NULL) - last_moving_time >= 5) {
+                clear_count += 1;
+                if (is_fst_waypoint_reached && clear_count == 1) {
+                    std_srvs::Trigger trigger;
+                    std_srvs::Empty empty_service;
+                    ROS_INFO("Costmap_clear!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
+                    clear_costmap_service.call(empty_service);
+                    //clear_count += 1;
+                }
+            }
+            if (clear_count >= 10){
+                clear_count = 0;
+            }
             if (time(NULL) - last_moving_time >= limit_time) {
                 if (is_fst_waypoint_reached) {
                     std_srvs::Trigger trigger;
                     std_srvs::Empty empty_service;
 
-                    ROS_INFO("Service call PrevWaypoint()");
+                    ROS_INFO("Recall!!!!!!!!!");
                     clear_costmap_service.call(empty_service);
                     if (prev_waypoint_service.call(trigger)) {
-                        ROS_INFO("PrevWaypoint call success");
+            //            ROS_INFO("PrevWaypoint call success");
 
                         // 次にNextWaypointを即座に呼ぶ
-                        ros::Duration(3.0).sleep();  // ちょっと待ってから
-                        ROS_INFO("Service call NextWaypoint()");
+                        ros::Duration(8.0).sleep();  // ちょっと待ってから
+              //          ROS_INFO("Service call NextWaypoint()");
                         repeat_waypoint_counter++;
-                        ROS_INFO("repeat_waypoint_counter = %d", repeat_waypoint_counter);
+    //                    ROS_INFO("repeat_waypoint_counter = %d", repeat_waypoint_counter);
                         if (!next_waypoint_service.call(trigger)) {
                             ROS_WARN("Failed to call NextWaypoint");
                         }
@@ -255,46 +238,23 @@ int main(int argc, char **argv) {
                     last_moving_time = time(NULL);
                     //repeat_waypoint_counter++;
                     if (repeat_waypoint_counter >= repeat_waypoint_threshold) {
-                        ROS_WARN("Repeated Prev→Next twice, force NextWaypoint");
+                    //    ROS_WARN("Repeated Prev→Next twice, force NextWaypoint");
             
                         if (next_waypoint_service.call(trigger)) {
-                            ROS_INFO("Forced NextWaypoint call success");
+      //                      ROS_INFO("Forced NextWaypoint call success");
                         } else {
-                            ROS_WARN("Forced NextWaypoint call failed");
+                            ROS_WARN("Forced call failed");
                         }
             
                         repeat_waypoint_counter = 0;
                     }
                 }
             }
-            //add
-            if (time(NULL) - last_moving_time >= 5) {
-                if (is_fst_waypoint_reached) {
-                    std_srvs::Trigger trigger;
-                    std_srvs::Empty empty_service;
-
-                    //ROS_INFO("Service call PrevWaypoint()");
-                    clear_costmap_service.call(empty_service);
-                    if (dynamic_client.call(req, res)) {
-                        ROS_INFO("stopping success");
-
-                        // 次にNextWaypointを即座に呼ぶ
-                        repeat_waypoint_counter++;
-                        //ROS_INFO("repeat_waypoint_counter = %d", repeat_waypoint_counter);
-
-                    } 
-
-                    is_to_prev_waypoint.store(true);
-                    last_moving_time = time(NULL);
-                    //repeat_waypoint_counter++;
-                }
-            }
-            //add_fin
         } else {
             last_moving_time = time(NULL);
             //repeat_waypoint_counter = 0;
             moving_confirm_count++;
-            ROS_INFO("moving_confirm_count: %d", moving_confirm_count);
+           // ROS_INFO("moving_confirm_count: %d", moving_confirm_count);
 
             if (moving_confirm_count >= moving_confirm_threshold) {
                 // 連続で動けている場合のみリセット
@@ -305,6 +265,6 @@ int main(int argc, char **argv) {
         loop_rate.sleep();
     }
 
-    ROS_INFO("Finish waypoint_server_node");
+//    ROS_INFO("Finish waypoint_server_node");
     return 0;
 }
