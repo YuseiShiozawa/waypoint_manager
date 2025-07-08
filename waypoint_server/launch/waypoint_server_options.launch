@@ -8,6 +8,9 @@
 
   <arg name="use_check_robot_moving" default="true"/>
   <arg name="use_waypoint_reconfigure" default="true"/>
+  <arg name="use_scan_check" default="true"/>
+
+
 
   <group ns="waypoint_manager">
     <node pkg="waypoint_server" type="waypoint_server_node" name="waypoint_server" output="$(arg output)">
@@ -38,5 +41,8 @@
       <rosparam command="load" file="$(arg config_file)" subst_value="true"/>
       <param name="file_path" value="$(arg reconfig_file)" />
     </node>
+    <node if="$(arg use_scan_check)" pkg="check_robot_moving" type="scan_check_node" name="scan_check_node">
+    </node>
+
   </group>
 </launch>
