@@ -458,9 +458,9 @@ void Node::waypointsCallback(const waypoint_manager_msgs::Waypoints::ConstPtr &m
 
         route_count_control.always_visible = true;
         route_count_marker.type = visualization_msgs::Marker::TEXT_VIEW_FACING;
-        route_count_marker.color.r = 1;
-        route_count_marker.color.g = 1;
-        route_count_marker.color.b = 1;
+        route_count_marker.color.r = 0;
+        route_count_marker.color.g = 0;
+        route_count_marker.color.b = 0;
         route_count_marker.color.a = 1;
         route_count_marker.scale.x = text_marker_scale;
         route_count_marker.scale.y = text_marker_scale;
