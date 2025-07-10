@@ -40,6 +40,7 @@ namespace {
     static int repeat_waypoint_counter = 0;
     static const int repeat_waypoint_threshold = 2;
     static int moving_confirm_count = 0;  // 動いていると判定された回数をカウント
+    static int clear_count = 0;
     static const int moving_confirm_threshold = 50; // 連続で50回動いていたらリセットする
 
 }
@@ -195,8 +196,22 @@ int main(int argc, char **argv) {
        /// ROS_INFO_STREAM("delta_pose_dist: " << delta_pose_dist);
 
         if (delta_pose_dist <= limit_delta_pose_dist && !is_reached_goal) {
-          //  ROS_INFO("time:%ld, stopped time:%ld\n", time(NULL) - start_time, time(NULL) - last_moving_time);
+            //ROS_INFO("time:%ld, stopped time:%ld\n", time(NULL) - start_time, time(NULL) - last_moving_time);
             moving_confirm_count = 0;
+            //clear_count = 0;
+            if (time(NULL) - last_moving_time >= 5) {
+                clear_count += 1;
+                if (is_fst_waypoint_reached && clear_count == 1) {
+                    std_srvs::Trigger trigger;
+                    std_srvs::Empty empty_service;
+                    ROS_INFO("Costmap_clear!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
+                    clear_costmap_service.call(empty_service);
+                    //clear_count += 1;
+                }
+            }
+            if (clear_count >= 10){
+                clear_count = 0;
+            }
             if (time(NULL) - last_moving_time >= limit_time) {
                 if (is_fst_waypoint_reached) {
                     std_srvs::Trigger trigger;
@@ -208,7 +223,7 @@ int main(int argc, char **argv) {
             //            ROS_INFO("PrevWaypoint call success");
 
                         // 次にNextWaypointを即座に呼ぶ
-                        ros::Duration(5.0).sleep();  // ちょっと待ってから
+                        ros::Duration(8.0).sleep();  // ちょっと待ってから
               //          ROS_INFO("Service call NextWaypoint()");
                         repeat_waypoint_counter++;
     //                    ROS_INFO("repeat_waypoint_counter = %d", repeat_waypoint_counter);
