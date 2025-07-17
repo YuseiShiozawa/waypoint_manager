@@ -8,7 +8,7 @@
 
   <arg name="use_check_robot_moving" default="true"/>
   <arg name="use_waypoint_reconfigure" default="true"/>
-  <arg name="use_scan_check" default="true"/>
+  <arg name="use_scan_check" default="false"/>
 
 
   <group ns="waypoint_manager">
