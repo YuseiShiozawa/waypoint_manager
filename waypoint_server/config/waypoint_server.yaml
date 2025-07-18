@@ -1,4 +1,4 @@
-goal_topic: /move_base_simple/goal
+gal_topic: /move_base_simple/goal
 is_reached_goal_topic: waypoint/is_reached
 regist_goal_pose_topic: waypoint/regist_pose
 regist_goal_point_topic: waypoint/regist_point
@@ -7,21 +7,21 @@ robot_base_frame: base_link
 global_frame: map
 goal_publish_frequency: 0.5
 goal_check_frequency: 1.0
-default_goal_radius: 2
+default_goal_radius: 1
 set_goal_radius: 10 #1
 #waypoints_file: $(find waypoint_server)/config/waypoints/test.yaml
 ## waypoints_file: $(find waypoint_server)/config/waypoints/20240625_tsuda_ch.yaml
 #waypoints_file: $(find waypoint_server)/config/waypoints/20250207_tsuda_ch.yaml
-#waypoints_file: $(find waypoint_server)/config/waypoints/20250607_tsuda_ch.yaml
-waypoints_file: $(find waypoint_server)/config/waypoints/25_open.yaml
+waypoints_file: $(find waypoint_server)/config/waypoints/20250607_tsuda_ch.yaml
+#waypoints_file: $(find waypoint_server)/config/waypoints/25_open.yaml
 
 
 
 
 #route_file: $(find waypoint_server)/config/routes/test.yaml
 ## route_file: $(find waypoint_server)/config/routes/20240625_tsuda_ch.yaml
-#route_file: $(find waypoint_server)/config/routes/20250607_tsuda_ch.yaml
-route_file: $(find waypoint_server)/config/routes/25_open.yaml
+route_file: $(find waypoint_server)/config/routes/20250607_tsuda_ch.yaml
+#route_file: $(find waypoint_server)/config/routes/25_open.yaml
 
 
 

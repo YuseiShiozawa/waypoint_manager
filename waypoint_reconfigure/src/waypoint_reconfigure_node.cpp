@@ -38,9 +38,9 @@ namespace {
     static float current_goal_radius = default_goal_radius;
     static Eigen::Vector2f current_position = Eigen::Vector2f::Zero();
     static std::string old_id, file_path_, start_id, end_id, area_name;
-    static float default_global_inflation, default_local_inflation, default_trajectory_limit_vel, default_trajectory_limit_theta, default_odom_rot_dev_per_rot, default_odom_rot_dev_per_fw, default_odom_fw_dev_per_rot, default_odom_fw_dev_per_fw;
+    static float default_global_inflation, default_local_inflation, default_trajectory_limit_vel, default_trajectory_limit_theta, default_odom_rot_dev_per_rot, default_odom_rot_dev_per_fw, default_odom_fw_dev_per_rot, default_odom_fw_dev_per_fw, default_cost_scale;
     static YAML::Node yaml_config;
-    static float global_inflation, local_inflation, trajectory_limit_vel, trajectory_limit_theta, odom_rot_dev_per_rot, odom_rot_dev_per_fw, odom_fw_dev_per_rot, odom_fw_dev_per_fw; //key name
+    static float global_inflation, local_inflation, trajectory_limit_vel, trajectory_limit_theta, odom_rot_dev_per_rot, odom_rot_dev_per_fw, odom_fw_dev_per_rot, odom_fw_dev_per_fw, cost_scale; //key name
 }
 
 void change_global_inflation_param(const std::string& param_name, double value);
@@ -51,6 +51,7 @@ void change_odom_rot_dev_per_rot_param(const std::string& param_name, double val
 void change_odom_rot_dev_per_fw_param(const std::string& param_name, double value);
 void change_odom_fw_dev_per_rot_param(const std::string& param_name, double value);
 void change_odom_fw_dev_per_fw_param(const std::string& param_name, double value);
+void change_cost_scale_param(const std::string& param_name, double value);
 
 void waypointCallback(const waypoint_manager_msgs::Waypoint::ConstPtr &msg) {
     try {
@@ -105,7 +106,10 @@ void waypointCallback(const waypoint_manager_msgs::Waypoint::ConstPtr &msg) {
                         }
                         if (p["key"].as<std::string>() == "odom_fw_dev_per_fw") {
                             change_odom_fw_dev_per_fw_param("odom_fw_dev_per_fw", default_odom_fw_dev_per_fw);
-                        }                                        
+                        }
+                        if (p["key"].as<std::string>() == "cost_scale") {
+                            change_cost_scale_param("cost_scaling_factor", default_cost_scale);
+                        }                                                                
                     }
                     is_reconfigure.store(false);
                 }
@@ -165,6 +169,11 @@ void waypointCallback(const waypoint_manager_msgs::Waypoint::ConstPtr &msg) {
                             ROS_WARN("Set odom_fw_dev_per_fw %f", odom_fw_dev_per_fw);
                             change_odom_fw_dev_per_fw_param("odom_fw_dev_per_fw", odom_fw_dev_per_fw);
                         }
+                        if (p["key"].as<std::string>() == "cost_scale") { // 1
+                            cost_scale = p["value"].as<float>();
+                            ROS_WARN("Set cost_scale %f", cost_scale);
+                            change_cost_scale_param("cost_scaling_factor", cost_scale);
+                        }
                     }
                 }
             }
@@ -196,7 +205,7 @@ void readYaml(ros::NodeHandle& private_nh) {
         default_odom_rot_dev_per_fw = yaml_config["waypoint_reconfigure_config"]["default_odom_rot_dev_per_fw"].as<float>();
         default_odom_fw_dev_per_rot = yaml_config["waypoint_reconfigure_config"]["default_odom_fw_dev_per_rot"].as<float>();
         default_odom_fw_dev_per_fw = yaml_config["waypoint_reconfigure_config"]["default_odom_fw_dev_per_fw"].as<float>();
-
+        default_cost_scale = yaml_config["waypoint_reconfigure_config"]["default_cost_scale"].as<float>();
     }
     catch(const std::exception& e)
     {
@@ -263,6 +272,20 @@ void change_trajectory_param(const std::string& param_name, double value) {
     srv_req.config = config;
 
     ros::service::call("/move_base/TrajectoryPlannerROS/set_parameters", srv_req, srv_resp);  // TrajectoryPlanner用
+}
+void change_cost_scale_param(const std::string& param_name, double value) {
+        dynamic_reconfigure::ReconfigureRequest srv_req;
+    dynamic_reconfigure::ReconfigureResponse srv_resp;
+    dynamic_reconfigure::DoubleParameter double_param;
+    dynamic_reconfigure::Config config;
+
+    double_param.name = param_name;
+    double_param.value = value;
+    config.doubles.push_back(double_param);
+
+    srv_req.config = config;
+
+    ros::service::call("/move_base/local_costmap/inflation_layer/set_parameters", srv_req, srv_resp);
 }
 
 void change_odom_rot_dev_per_rot_param(const std::string& param_name, double value) {
@@ -364,5 +387,3 @@ auto main(int argc, char **argv) -> int {
 
     return 0;
 }
-
-
