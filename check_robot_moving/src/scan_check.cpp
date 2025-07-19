@@ -6,18 +6,24 @@
 #include <dynamic_reconfigure/Config.h>
 #include <std_srvs/Trigger.h>
 
+// === グローバル変数 ===
 ros::ServiceClient dynamic_client;
 bool obstacle_detected = false;
 ros::Time last_obstacle_time;
 double current_vel_x = -1.0;
 
-// 強制停止フラグ
 bool force_stop = false;
 
+// しきい値（パラメータで読み込む）
+double slow_threshold = 8.0;
+double stop_threshold = 5.0;
+
 // === front obstacle check ===
-bool checkFrontObstacle(const sensor_msgs::LaserScan::ConstPtr& scan)
+// 与えられたしきい値以下なら true（障害物あり）
+bool checkFrontObstacle(const sensor_msgs::LaserScan::ConstPtr& scan, double threshold)
 {
     int center_index = (0.0 - scan->angle_min) / scan->angle_increment;
+
     if (center_index < 0 || center_index >= scan->ranges.size())
     {
         ROS_WARN("Center index out of range!");
@@ -25,7 +31,7 @@ bool checkFrontObstacle(const sensor_msgs::LaserScan::ConstPtr& scan)
     }
 
     double front_distance = scan->ranges[center_index];
-    return (front_distance < 8.0);
+    return (front_distance < threshold);
 }
 
 // === max_vel_x setter ===
@@ -58,22 +64,24 @@ void setMaxVelX(double value)
 // === LaserScan callback ===
 void scanCallback(const sensor_msgs::LaserScan::ConstPtr& scan)
 {
-    bool detected = checkFrontObstacle(scan);
-
     if (force_stop)
     {
+        // 停止モード：しきい値は stop_threshold
+        bool detected = checkFrontObstacle(scan, stop_threshold);
+
         if (detected)
         {
-            // 強制停止中で、前に障害物が近い → 完全停止
-            setMaxVelX(0.0);
+            setMaxVelX(0.0);  // 完全停止
         }
         else
         {
-            // 強制停止中でも、まだ障害物が遠い → 減速だけ維持 or 無視
-            setMaxVelX(1.0);  // ← ここで止まりたくなければコメントアウトして維持も可
+            setMaxVelX(0.5);  // 必要に応じてこの動作はコメントアウトしてもよい
         }
         return;
     }
+
+    // 通常（減速）モード：しきい値は slow_threshold
+    bool detected = checkFrontObstacle(scan, slow_threshold);
 
     if (detected)
     {
@@ -81,7 +89,7 @@ void scanCallback(const sensor_msgs::LaserScan::ConstPtr& scan)
         {
             last_obstacle_time = ros::Time::now();
             obstacle_detected = true;
-            setMaxVelX(0.5);
+            setMaxVelX(0.5);  // 減速
         }
     }
     else
@@ -94,11 +102,10 @@ void scanCallback(const sensor_msgs::LaserScan::ConstPtr& scan)
 
         if ((ros::Time::now() - last_obstacle_time).toSec() > 7.0)
         {
-            setMaxVelX(1.0);
+            setMaxVelX(1.0);  // 通常速度へ戻す
         }
     }
 }
-
 
 // === /force_stop service callback ===
 bool forceStopCallback(std_srvs::Trigger::Request& req, std_srvs::Trigger::Response& res)
@@ -124,6 +131,11 @@ int main(int argc, char** argv)
 {
     ros::init(argc, argv, "simple_front_obstacle_check");
     ros::NodeHandle nh;
+    ros::NodeHandle pnh("~");
+    // パラメータの読み込み
+    pnh.param("slow_threshold", slow_threshold, 8.0);
+    pnh.param("stop_threshold", stop_threshold, 5.0);
+    
 
     dynamic_client = nh.serviceClient<dynamic_reconfigure::Reconfigure>(
         "/move_base/TrajectoryPlannerROS/set_parameters");

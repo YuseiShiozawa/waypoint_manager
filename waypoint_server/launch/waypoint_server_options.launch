@@ -42,6 +42,7 @@
       <param name="file_path" value="$(arg reconfig_file)" />
     </node>
     <node if="$(arg use_scan_check)" pkg="check_robot_moving" type="scan_check_node" name="scan_check_node">
+      <rosparam file="$(find check_robot_moving)/config/scan_check.yaml" command="load"/>
     </node>
 
   </group>
