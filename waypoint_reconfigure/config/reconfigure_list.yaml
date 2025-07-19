@@ -20,7 +20,8 @@ waypoint_reconfigure_config:
           value: 2.0
         - key: cost_scale
           value: 5.0
- 
+        - key: trajectory_limit_theta
+          value: 1.0  
     - name: "chari_in"
       start_id: registed_0_1654678923563628537
       end_id: registed_0_1654679091386560710

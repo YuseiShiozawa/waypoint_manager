@@ -53,6 +53,19 @@ void change_odom_fw_dev_per_rot_param(const std::string& param_name, double valu
 void change_odom_fw_dev_per_fw_param(const std::string& param_name, double value);
 void change_cost_scale_param(const std::string& param_name, double value);
 
+void callForceStopService() {
+    std_srvs::Trigger srv;
+    if (!ros::service::call("/force_stop", srv)) {
+        ROS_ERROR("Failed to call /force_stop service");
+    }
+}
+void callForceresumeService() {
+    std_srvs::Trigger srv;
+    if (!ros::service::call("/force_resume", srv)) {
+        ROS_ERROR("Failed to call /force_stop service");
+    }
+}
+
 void waypointCallback(const waypoint_manager_msgs::Waypoint::ConstPtr &msg) {
     try {
         // ROS_WARN("recived_waypoint");        
@@ -94,6 +107,7 @@ void waypointCallback(const waypoint_manager_msgs::Waypoint::ConstPtr &msg) {
                         if (p["key"].as<std::string>() == "trajectory_limit_theta") {  // TrajectoryPlanner用のパラメータ
                             change_trajectory_param("max_vel_theta", default_trajectory_limit_theta);
                             change_trajectory_param("min_vel_theta", default_trajectory_limit_theta * -1.0);
+                            callForceresumeService();
                         }
                         if (p["key"].as<std::string>() == "odom_rot_dev_per_rot") {
                             change_odom_rot_dev_per_rot_param("odom_rot_dev_per_rot", default_odom_rot_dev_per_rot);
@@ -272,6 +286,7 @@ void change_trajectory_param(const std::string& param_name, double value) {
     srv_req.config = config;
 
     ros::service::call("/move_base/TrajectoryPlannerROS/set_parameters", srv_req, srv_resp);  // TrajectoryPlanner用
+    callForceStopService();
 }
 void change_cost_scale_param(const std::string& param_name, double value) {
         dynamic_reconfigure::ReconfigureRequest srv_req;
