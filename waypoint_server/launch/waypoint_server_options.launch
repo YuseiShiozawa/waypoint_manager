@@ -4,7 +4,7 @@
   <arg name="goal_topic" default="/move_base_simple/goal"/>
   <arg name="regist_goal_topic" default="/clicked_point"/>
   <arg name="config_file" default="$(find waypoint_server)/config/waypoint_server.yaml"/>
-  <arg name="reconfig_file" default="$(find waypoint_reconfigure)/config/reconfigure_list.yaml"/>
+  <arg name="reconfig_file" default="$(find waypoint_reconfigure)/config/reconfigure_list_2.yaml"/>
 
   <arg name="use_check_robot_moving" default="true"/>
   <arg name="use_waypoint_reconfigure" default="true"/>

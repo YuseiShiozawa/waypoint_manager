@@ -209,7 +209,7 @@ int main(int argc, char **argv) {
                     //clear_count += 1;
                 }
             }
-            if (clear_count >= 10){
+            if (clear_count >= 20){
                 clear_count = 0;
             }
             if (time(NULL) - last_moving_time >= limit_time) {
