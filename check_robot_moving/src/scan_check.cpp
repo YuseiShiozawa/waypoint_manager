@@ -17,16 +17,14 @@ bool force_stop = false;
 // しきい値（パラメータで読み込む）
 double slow_threshold = 8.0;
 double stop_threshold = 5.0;
+int front_check_angle_deg = 5;
 
 // === front obstacle check ===
 // 与えられたしきい値以下なら true（障害物あり）
-bool checkFrontObstacle(const sensor_msgs::LaserScan::ConstPtr& scan, double threshold)
+bool checkFrontObstacle(const sensor_msgs::LaserScan::ConstPtr& scan, double threshold, int angle_deg)
 {
     int center_index = (0.0 - scan->angle_min) / scan->angle_increment;
-
-    // ±5度の範囲をインデックス数に換算
-    int angle_width_deg = 5;
-    int width = angle_width_deg / (scan->angle_increment * 180.0 / M_PI);  // angle_increment は rad単位
+    int width = angle_deg / (scan->angle_increment * 180.0 / M_PI);
 
     double min_distance = std::numeric_limits<double>::infinity();
 
@@ -44,6 +42,7 @@ bool checkFrontObstacle(const sensor_msgs::LaserScan::ConstPtr& scan, double thr
 
     return (min_distance < threshold);
 }
+
 
 
 // === max_vel_x setter ===
@@ -79,7 +78,7 @@ void scanCallback(const sensor_msgs::LaserScan::ConstPtr& scan)
     if (force_stop)
     {
         // 停止モード：しきい値は stop_threshold
-        bool detected = checkFrontObstacle(scan, stop_threshold);
+        bool detected = checkFrontObstacle(scan, stop_threshold, front_check_angle_deg);
 
         if (detected)
         {
@@ -87,13 +86,13 @@ void scanCallback(const sensor_msgs::LaserScan::ConstPtr& scan)
         }
         else
         {
-            setMaxVelX(0.5);  // 必要に応じてこの動作はコメントアウトしてもよい
+            setMaxVelX(0.7);  // 必要に応じてこの動作はコメントアウトしてもよい
         }
         return;
     }
 
     // 通常（減速）モード：しきい値は slow_threshold
-    bool detected = checkFrontObstacle(scan, slow_threshold);
+    bool detected = checkFrontObstacle(scan, slow_threshold, front_check_angle_deg);
 
     if (detected)
     {
@@ -147,7 +146,8 @@ int main(int argc, char** argv)
     // パラメータの読み込み
     pnh.param("slow_threshold", slow_threshold, 8.0);
     pnh.param("stop_threshold", stop_threshold, 5.0);
-    
+    pnh.param("front_check_angle_deg", front_check_angle_deg, 5);
+
 
     dynamic_client = nh.serviceClient<dynamic_reconfigure::Reconfigure>(
         "/move_base/TrajectoryPlannerROS/set_parameters");
