@@ -24,15 +24,27 @@ bool checkFrontObstacle(const sensor_msgs::LaserScan::ConstPtr& scan, double thr
 {
     int center_index = (0.0 - scan->angle_min) / scan->angle_increment;
 
-    if (center_index < 0 || center_index >= scan->ranges.size())
+    // ±5度の範囲をインデックス数に換算
+    int angle_width_deg = 5;
+    int width = angle_width_deg / (scan->angle_increment * 180.0 / M_PI);  // angle_increment は rad単位
+
+    double min_distance = std::numeric_limits<double>::infinity();
+
+    for (int i = center_index - width; i <= center_index + width; ++i)
     {
-        ROS_WARN("Center index out of range!");
-        return false;
+        if (i >= 0 && i < scan->ranges.size())
+        {
+            double d = scan->ranges[i];
+            if (std::isfinite(d))
+            {
+                min_distance = std::min(min_distance, d);
+            }
+        }
     }
 
-    double front_distance = scan->ranges[center_index];
-    return (front_distance < threshold);
+    return (min_distance < threshold);
 }
+
 
 // === max_vel_x setter ===
 void setMaxVelX(double value)
