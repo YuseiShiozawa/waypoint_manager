@@ -6,13 +6,21 @@
 #include <dynamic_reconfigure/Config.h>
 #include <std_srvs/Trigger.h>
 
+// === グローバル変数 ===
 ros::ServiceClient dynamic_client;
-bool obstacle_detected = false;  // 障害物が検出されたかどうか
-ros::Time last_obstacle_time;   // 障害物が検出された／消えた時刻
-double current_vel_x = -1.0;    // 現在の max_vel_x の設定値（初期化されていないことを示す）
+bool obstacle_detected = false;
+ros::Time last_obstacle_time;
+double current_vel_x = -1.0;
 
-// 正面1点のみチェック（近距離なら止まる）
-bool checkFrontObstacle(const sensor_msgs::LaserScan::ConstPtr& scan)
+bool force_stop = false;
+
+// しきい値（パラメータで読み込む）
+double slow_threshold = 8.0;
+double stop_threshold = 5.0;
+
+// === front obstacle check ===
+// 与えられたしきい値以下なら true（障害物あり）
+bool checkFrontObstacle(const sensor_msgs::LaserScan::ConstPtr& scan, double threshold)
 {
     int center_index = (0.0 - scan->angle_min) / scan->angle_increment;
 
@@ -23,16 +31,14 @@ bool checkFrontObstacle(const sensor_msgs::LaserScan::ConstPtr& scan)
     }
 
     double front_distance = scan->ranges[center_index];
-  //  ROS_INFO("Center range [index %d]: %f", center_index, front_distance);
-
-    return (front_distance < 8.0);  // 1m以内なら障害物と判定
+    return (front_distance < threshold);
 }
 
-// max_vel_x を変更（不要な再設定は避ける）
+// === max_vel_x setter ===
 void setMaxVelX(double value)
 {
     if (value == current_vel_x)
-        return;  // 同じ値なら再設定しない
+        return;
 
     dynamic_reconfigure::ReconfigureRequest req;
     dynamic_reconfigure::ReconfigureResponse res;
@@ -46,55 +52,98 @@ void setMaxVelX(double value)
 
     if (dynamic_client.call(req, res))
     {
- //       ROS_INFO("Max velocity updated successfully to %f", value);
         current_vel_x = value;
+        ROS_INFO("Set max_vel_x to %f", value);
     }
     else
     {
-        ROS_ERROR("Failed to call service to update velocity.");
+        ROS_ERROR("Failed to set max_vel_x");
     }
 }
 
-// LaserScan のコールバック
+// === LaserScan callback ===
 void scanCallback(const sensor_msgs::LaserScan::ConstPtr& scan)
 {
-    bool detected = checkFrontObstacle(scan);
+    if (force_stop)
+    {
+        // 停止モード：しきい値は stop_threshold
+        bool detected = checkFrontObstacle(scan, stop_threshold);
+
+        if (detected)
+        {
+            setMaxVelX(0.0);  // 完全停止
+        }
+        else
+        {
+            setMaxVelX(0.5);  // 必要に応じてこの動作はコメントアウトしてもよい
+        }
+        return;
+    }
+
+    // 通常（減速）モード：しきい値は slow_threshold
+    bool detected = checkFrontObstacle(scan, slow_threshold);
 
     if (detected)
     {
         if (!obstacle_detected)
         {
-            last_obstacle_time = ros::Time::now();  // 障害物検出時刻を記録
+            last_obstacle_time = ros::Time::now();
             obstacle_detected = true;
-   //         ROS_INFO("Obstacle detected, stopping!");
-            setMaxVelX(0.5);  // 速度制限
+            setMaxVelX(0.5);  // 減速
         }
     }
     else
     {
         if (obstacle_detected)
         {
-            last_obstacle_time = ros::Time::now();  // 障害物が消えた時刻を記録
+            last_obstacle_time = ros::Time::now();
             obstacle_detected = false;
         }
 
         if ((ros::Time::now() - last_obstacle_time).toSec() > 7.0)
         {
-          //  ROS_INFO("5 seconds passed without obstacle, restoring max_vel_x to 1.0");
-            setMaxVelX(1.0);  // 元の速度に戻す
+            setMaxVelX(1.0);  // 通常速度へ戻す
         }
     }
 }
 
+// === /force_stop service callback ===
+bool forceStopCallback(std_srvs::Trigger::Request& req, std_srvs::Trigger::Response& res)
+{
+    force_stop = true;
+    setMaxVelX(0.0);
+    res.success = true;
+    res.message = "Force stop activated.";
+    return true;
+}
+
+// === /force_resume service callback ===
+bool forceResumeCallback(std_srvs::Trigger::Request& req, std_srvs::Trigger::Response& res)
+{
+    force_stop = false;
+    res.success = true;
+    res.message = "Force stop released. Resuming normal control.";
+    return true;
+}
+
+// === main ===
 int main(int argc, char** argv)
 {
     ros::init(argc, argv, "simple_front_obstacle_check");
     ros::NodeHandle nh;
+    ros::NodeHandle pnh("~");
+    // パラメータの読み込み
+    pnh.param("slow_threshold", slow_threshold, 8.0);
+    pnh.param("stop_threshold", stop_threshold, 5.0);
+    
 
     dynamic_client = nh.serviceClient<dynamic_reconfigure::Reconfigure>(
         "/move_base/TrajectoryPlannerROS/set_parameters");
 
     ros::Subscriber scan_sub = nh.subscribe("/scan", 10, scanCallback);
+
+    ros::ServiceServer stop_srv = nh.advertiseService("/force_stop", forceStopCallback);
+    ros::ServiceServer resume_srv = nh.advertiseService("/force_resume", forceResumeCallback);
 
     ros::spin();
     return 0;

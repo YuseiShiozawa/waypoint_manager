@@ -17,11 +17,11 @@ waypoint_reconfigure_config:
       end_id: registed_0_1654677629207839171
       properties:
         - key: trajectory_limit_theta
-          value: 0.1 
+          value: 0.3 
         - key: local_inflation
           value: 2.5
-        - key: cost_scale
-          value: 20
+#        - key: cost_scale
+#          value: 20
     - name: "saka_1"
       start_id: registed_0_1654678682085549452
       end_id: registed_0_1752732492908752068
@@ -49,18 +49,18 @@ waypoint_reconfigure_config:
       end_id: registed_0_1654680034885180993
       properties:
         - key: trajectory_limit_theta
-          value: 0.05 
+          value: 0.1 
         - key: local_inflation
           value: 2.5 
-        - key: cost_scale
-          value: 30
+#        - key: cost_scale
+#          value: 30
     - name: "test_stop3"
       start_id: registed_0_1654680119611979294 
       end_id: registed_0_1752822775886769344
       properties:
         - key: trajectory_limit_theta
-          value: 0.0 
+          value: 0.5 
         - key: local_inflation
           value: 2.5 
-        - key: cost_scale
-          value: 40 
+#        - key: cost_scale
+#          value: 40 
