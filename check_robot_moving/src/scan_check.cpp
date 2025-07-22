@@ -11,7 +11,7 @@ ros::ServiceClient dynamic_client;
 bool obstacle_detected = false;
 ros::Time last_obstacle_time;
 double current_vel_x = -1.0;
-
+double current_vel_theta = 100.0;  // 初期値を無効値として設定
 bool force_stop = false;
 double normal_slow_vel = 0.5;
 double force_slow_vel = 0.7;
@@ -22,7 +22,7 @@ double stop_threshold = 5.0;
 double normal_check_angle_deg = 5.0;
 double force_check_angle_deg = 5.0;
 double obstacle_clear_duration = 7.0;
-
+double normal_slow_theta = 1.0;
 
 // === front obstacle check ===
 // 与えられたしきい値以下なら true（障害物あり）
@@ -47,6 +47,36 @@ bool checkFrontObstacle(const sensor_msgs::LaserScan::ConstPtr& scan, double thr
 
     return (min_distance < threshold);
 }
+
+
+void setSymmetricThetaVel(double max_theta)
+{
+    dynamic_reconfigure::ReconfigureRequest req;
+    dynamic_reconfigure::ReconfigureResponse res;
+    dynamic_reconfigure::DoubleParameter param_max;
+    dynamic_reconfigure::DoubleParameter param_min;
+    dynamic_reconfigure::Config config;
+
+    param_max.name = "max_vel_theta";
+    param_max.value = max_theta;
+
+    param_min.name = "min_vel_theta";
+    param_min.value = -max_theta;
+
+    config.doubles.push_back(param_max);
+    config.doubles.push_back(param_min);
+    req.config = config;
+
+    if (dynamic_client.call(req, res))
+    {
+        ROS_INFO("Set symmetric theta velocity: max = %f, min = %f", max_theta, -max_theta);
+    }
+    else
+    {
+        ROS_ERROR("Failed to set symmetric theta velocity.");
+    }
+}
+
 
 
 
@@ -87,10 +117,12 @@ void scanCallback(const sensor_msgs::LaserScan::ConstPtr& scan)
         if (detected)
         {
             setMaxVelX(0.0);  // 完全停止
+            setSymmetricThetaVel(0.0);
         }
         else
         {
             setMaxVelX(force_slow_vel);
+            setSymmetricThetaVel(normal_slow_theta);
         }
         return;
     }
@@ -117,6 +149,8 @@ void scanCallback(const sensor_msgs::LaserScan::ConstPtr& scan)
         if ((ros::Time::now() - last_obstacle_time).toSec() > obstacle_clear_duration)
         {
             setMaxVelX(1.0);  // 通常速度へ戻す
+            setSymmetricThetaVel(2.0);
+
         }
     }
 }
@@ -156,7 +190,7 @@ int main(int argc, char** argv)
     pnh.param("normal_slow_vel", normal_slow_vel, 0.5);
     pnh.param("force_slow_vel", force_slow_vel, 0.7);
     pnh.param("obstacle_clear_duration", obstacle_clear_duration, 7.0);
-
+    pnh.param("normal_slow_theta", normal_slow_theta, 1.0);
 
     dynamic_client = nh.serviceClient<dynamic_reconfigure::Reconfigure>(
         "/move_base/TrajectoryPlannerROS/set_parameters");
