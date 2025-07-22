@@ -4,3 +4,4 @@ normal_slow_vel: 0.4
 force_slow_vel: 0.6
 normal_check_angle_deg: 1.0
 force_check_angle_deg: 45.0
+obstacle_clear_duration: 1.0

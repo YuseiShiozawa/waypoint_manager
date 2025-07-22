@@ -21,6 +21,7 @@ double slow_threshold = 8.0;
 double stop_threshold = 5.0;
 double normal_check_angle_deg = 5.0;
 double force_check_angle_deg = 5.0;
+double obstacle_clear_duration = 7.0;
 
 
 // === front obstacle check ===
@@ -113,7 +114,7 @@ void scanCallback(const sensor_msgs::LaserScan::ConstPtr& scan)
             obstacle_detected = false;
         }
 
-        if ((ros::Time::now() - last_obstacle_time).toSec() > 7.0)
+        if ((ros::Time::now() - last_obstacle_time).toSec() > obstacle_clear_duration)
         {
             setMaxVelX(1.0);  // 通常速度へ戻す
         }
@@ -154,6 +155,7 @@ int main(int argc, char** argv)
     pnh.param("force_check_angle_deg", force_check_angle_deg, 5.0);
     pnh.param("normal_slow_vel", normal_slow_vel, 0.5);
     pnh.param("force_slow_vel", force_slow_vel, 0.7);
+    pnh.param("obstacle_clear_duration", obstacle_clear_duration, 7.0);
 
 
     dynamic_client = nh.serviceClient<dynamic_reconfigure::Reconfigure>(
