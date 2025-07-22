@@ -13,6 +13,8 @@ ros::Time last_obstacle_time;
 double current_vel_x = -1.0;
 
 bool force_stop = false;
+double normal_slow_vel = 0.5;
+double force_slow_vel = 0.7;
 
 // しきい値（パラメータで読み込む）
 double slow_threshold = 8.0;
@@ -77,7 +79,6 @@ void scanCallback(const sensor_msgs::LaserScan::ConstPtr& scan)
 {
     if (force_stop)
     {
-        // 停止モード：しきい値は stop_threshold
         bool detected = checkFrontObstacle(scan, stop_threshold, front_check_angle_deg);
 
         if (detected)
@@ -86,12 +87,11 @@ void scanCallback(const sensor_msgs::LaserScan::ConstPtr& scan)
         }
         else
         {
-            setMaxVelX(0.7);  // 必要に応じてこの動作はコメントアウトしてもよい
+            setMaxVelX(force_slow_vel);  // ← ここを param に
         }
         return;
     }
 
-    // 通常（減速）モード：しきい値は slow_threshold
     bool detected = checkFrontObstacle(scan, slow_threshold, front_check_angle_deg);
 
     if (detected)
@@ -100,7 +100,7 @@ void scanCallback(const sensor_msgs::LaserScan::ConstPtr& scan)
         {
             last_obstacle_time = ros::Time::now();
             obstacle_detected = true;
-            setMaxVelX(0.5);  // 減速
+            setMaxVelX(normal_slow_vel);  // ← ここも param に
         }
     }
     else
@@ -117,6 +117,7 @@ void scanCallback(const sensor_msgs::LaserScan::ConstPtr& scan)
         }
     }
 }
+
 
 // === /force_stop service callback ===
 bool forceStopCallback(std_srvs::Trigger::Request& req, std_srvs::Trigger::Response& res)
@@ -147,6 +148,8 @@ int main(int argc, char** argv)
     pnh.param("slow_threshold", slow_threshold, 8.0);
     pnh.param("stop_threshold", stop_threshold, 5.0);
     pnh.param("front_check_angle_deg", front_check_angle_deg, 5);
+    pnh.param("normal_slow_vel", normal_slow_vel, 0.5);
+    pnh.param("force_slow_vel", force_slow_vel, 0.7);
 
 
     dynamic_client = nh.serviceClient<dynamic_reconfigure::Reconfigure>(
