@@ -1,5 +1,6 @@
 slow_threshold: 8.0
 stop_threshold: 5.0
-front_check_angle_deg: 1
 normal_slow_vel: 0.4
 force_slow_vel: 0.6
+normal_check_angle_deg: 1.0
+force_check_angle_deg: 45.0

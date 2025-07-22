@@ -19,7 +19,9 @@ double force_slow_vel = 0.7;
 // しきい値（パラメータで読み込む）
 double slow_threshold = 8.0;
 double stop_threshold = 5.0;
-int front_check_angle_deg = 5;
+double normal_check_angle_deg = 5.0;
+double force_check_angle_deg = 5.0;
+
 
 // === front obstacle check ===
 // 与えられたしきい値以下なら true（障害物あり）
@@ -79,7 +81,7 @@ void scanCallback(const sensor_msgs::LaserScan::ConstPtr& scan)
 {
     if (force_stop)
     {
-        bool detected = checkFrontObstacle(scan, stop_threshold, front_check_angle_deg);
+        bool detected = checkFrontObstacle(scan, stop_threshold, force_check_angle_deg);
 
         if (detected)
         {
@@ -87,12 +89,12 @@ void scanCallback(const sensor_msgs::LaserScan::ConstPtr& scan)
         }
         else
         {
-            setMaxVelX(force_slow_vel);  // ← ここを param に
+            setMaxVelX(force_slow_vel);
         }
         return;
     }
 
-    bool detected = checkFrontObstacle(scan, slow_threshold, front_check_angle_deg);
+    bool detected = checkFrontObstacle(scan, slow_threshold, normal_check_angle_deg);
 
     if (detected)
     {
@@ -100,7 +102,7 @@ void scanCallback(const sensor_msgs::LaserScan::ConstPtr& scan)
         {
             last_obstacle_time = ros::Time::now();
             obstacle_detected = true;
-            setMaxVelX(normal_slow_vel);  // ← ここも param に
+            setMaxVelX(normal_slow_vel);
         }
     }
     else
@@ -117,6 +119,7 @@ void scanCallback(const sensor_msgs::LaserScan::ConstPtr& scan)
         }
     }
 }
+
 
 
 // === /force_stop service callback ===
@@ -147,7 +150,8 @@ int main(int argc, char** argv)
     // パラメータの読み込み
     pnh.param("slow_threshold", slow_threshold, 8.0);
     pnh.param("stop_threshold", stop_threshold, 5.0);
-    pnh.param("front_check_angle_deg", front_check_angle_deg, 5);
+    pnh.param("normal_check_angle_deg", normal_check_angle_deg, 5.0);
+    pnh.param("force_check_angle_deg", force_check_angle_deg, 5.0);
     pnh.param("normal_slow_vel", normal_slow_vel, 0.5);
     pnh.param("force_slow_vel", force_slow_vel, 0.7);
 
