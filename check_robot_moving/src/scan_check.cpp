@@ -11,28 +11,74 @@ ros::ServiceClient dynamic_client;
 bool obstacle_detected = false;
 ros::Time last_obstacle_time;
 double current_vel_x = -1.0;
-
+double current_vel_theta = 100.0;  // 初期値を無効値として設定
 bool force_stop = false;
+double normal_slow_vel = 0.5;
+double force_slow_vel = 0.7;
 
 // しきい値（パラメータで読み込む）
 double slow_threshold = 8.0;
 double stop_threshold = 5.0;
+double normal_check_angle_deg = 5.0;
+double force_check_angle_deg = 5.0;
+double obstacle_clear_duration = 7.0;
+double normal_slow_theta = 1.0;
 
 // === front obstacle check ===
 // 与えられたしきい値以下なら true（障害物あり）
-bool checkFrontObstacle(const sensor_msgs::LaserScan::ConstPtr& scan, double threshold)
+bool checkFrontObstacle(const sensor_msgs::LaserScan::ConstPtr& scan, double threshold, int angle_deg)
 {
     int center_index = (0.0 - scan->angle_min) / scan->angle_increment;
+    int width = angle_deg / (scan->angle_increment * 180.0 / M_PI);
 
-    if (center_index < 0 || center_index >= scan->ranges.size())
+    double min_distance = std::numeric_limits<double>::infinity();
+
+    for (int i = center_index - width; i <= center_index + width; ++i)
     {
-        ROS_WARN("Center index out of range!");
-        return false;
+        if (i >= 0 && i < scan->ranges.size())
+        {
+            double d = scan->ranges[i];
+            if (std::isfinite(d))
+            {
+                min_distance = std::min(min_distance, d);
+            }
+        }
     }
 
-    double front_distance = scan->ranges[center_index];
-    return (front_distance < threshold);
+    return (min_distance < threshold);
 }
+
+
+void setSymmetricThetaVel(double max_theta)
+{
+    dynamic_reconfigure::ReconfigureRequest req;
+    dynamic_reconfigure::ReconfigureResponse res;
+    dynamic_reconfigure::DoubleParameter param_max;
+    dynamic_reconfigure::DoubleParameter param_min;
+    dynamic_reconfigure::Config config;
+
+    param_max.name = "max_vel_theta";
+    param_max.value = max_theta;
+
+    param_min.name = "min_vel_theta";
+    param_min.value = -max_theta;
+
+    config.doubles.push_back(param_max);
+    config.doubles.push_back(param_min);
+    req.config = config;
+
+    if (dynamic_client.call(req, res))
+    {
+        ROS_INFO("Set symmetric theta velocity: max = %f, min = %f", max_theta, -max_theta);
+    }
+    else
+    {
+        ROS_ERROR("Failed to set symmetric theta velocity.");
+    }
+}
+
+
+
 
 // === max_vel_x setter ===
 void setMaxVelX(double value)
@@ -66,22 +112,22 @@ void scanCallback(const sensor_msgs::LaserScan::ConstPtr& scan)
 {
     if (force_stop)
     {
-        // 停止モード：しきい値は stop_threshold
-        bool detected = checkFrontObstacle(scan, stop_threshold);
+        bool detected = checkFrontObstacle(scan, stop_threshold, force_check_angle_deg);
 
         if (detected)
         {
             setMaxVelX(0.0);  // 完全停止
+            setSymmetricThetaVel(0.0);
         }
         else
         {
-            setMaxVelX(0.5);  // 必要に応じてこの動作はコメントアウトしてもよい
+            setMaxVelX(force_slow_vel);
+            setSymmetricThetaVel(normal_slow_theta);
         }
         return;
     }
 
-    // 通常（減速）モード：しきい値は slow_threshold
-    bool detected = checkFrontObstacle(scan, slow_threshold);
+    bool detected = checkFrontObstacle(scan, slow_threshold, normal_check_angle_deg);
 
     if (detected)
     {
@@ -89,7 +135,7 @@ void scanCallback(const sensor_msgs::LaserScan::ConstPtr& scan)
         {
             last_obstacle_time = ros::Time::now();
             obstacle_detected = true;
-            setMaxVelX(0.5);  // 減速
+            setMaxVelX(normal_slow_vel);
         }
     }
     else
@@ -100,12 +146,16 @@ void scanCallback(const sensor_msgs::LaserScan::ConstPtr& scan)
             obstacle_detected = false;
         }
 
-        if ((ros::Time::now() - last_obstacle_time).toSec() > 7.0)
+        if ((ros::Time::now() - last_obstacle_time).toSec() > obstacle_clear_duration)
         {
             setMaxVelX(1.0);  // 通常速度へ戻す
+            setSymmetricThetaVel(2.0);
+
         }
     }
 }
+
+
 
 // === /force_stop service callback ===
 bool forceStopCallback(std_srvs::Trigger::Request& req, std_srvs::Trigger::Response& res)
@@ -135,7 +185,12 @@ int main(int argc, char** argv)
     // パラメータの読み込み
     pnh.param("slow_threshold", slow_threshold, 8.0);
     pnh.param("stop_threshold", stop_threshold, 5.0);
-    
+    pnh.param("normal_check_angle_deg", normal_check_angle_deg, 5.0);
+    pnh.param("force_check_angle_deg", force_check_angle_deg, 5.0);
+    pnh.param("normal_slow_vel", normal_slow_vel, 0.5);
+    pnh.param("force_slow_vel", force_slow_vel, 0.7);
+    pnh.param("obstacle_clear_duration", obstacle_clear_duration, 7.0);
+    pnh.param("normal_slow_theta", normal_slow_theta, 1.0);
 
     dynamic_client = nh.serviceClient<dynamic_reconfigure::Reconfigure>(
         "/move_base/TrajectoryPlannerROS/set_parameters");
