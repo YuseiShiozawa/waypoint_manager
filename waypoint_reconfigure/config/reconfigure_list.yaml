@@ -6,11 +6,9 @@ waypoint_reconfigure_config:
   default_trajectory_limit_vel: 0.5
   default_trajectory_limit_theta: 1.0 
   areas:
-#    - name: "test"
-#      start_id: registed_0_1654677617925209392 
-#      end_id: registed_0_1654677629207839171
-#      properties:
-#        - key: trajectory_limit_theta
-#          value: 0.01 
-#        - key: local_inflation
-#          value: 1.0
+   - name: "test"
+      start_id: registed_0_1654680874107441045
+      end_id: registed_0_1706866343072808411
+      properties:
+        - key: local_coat_cloud 
+          value: false 
