@@ -7,8 +7,8 @@ waypoint_reconfigure_config:
   default_trajectory_limit_theta: 1.0 
   areas:
    - name: "test"
-      start_id: registed_0_1654680874107441045
-      end_id: registed_0_1706866343072808411
-      properties:
-        - key: local_coat_cloud 
-          value: false 
+     start_id: registed_0_1654680874107441045
+     end_id: registed_0_1706866343072808411
+     properties:
+       - key: local_cost_cloud 
+         value: false 
