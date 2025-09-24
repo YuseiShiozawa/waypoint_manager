@@ -1,8 +1,8 @@
-slow_threshold: 8.0
-stop_threshold: 5.0
-normal_slow_vel: 0.4
-force_slow_vel: 0.6
-normal_check_angle_deg: 1.0
-force_check_angle_deg: 45.0
-obstacle_clear_duration: 1.0
-normal_slow_theta: 0.3
+slow_threshold: 8.0 # 減速モード時の障害物認識距離
+stop_threshold: 5.0 # 停止モード時の障害物認識距離
+normal_slow_vel: 0.4 # 減速時の減速速度
+force_slow_vel: 0.6 # 停止モード時の減速速度
+normal_check_angle_deg: 1.0 # 減速モード時の障害物認識範囲
+force_check_angle_deg: 45.0   # 停止モード時の障害物認識範囲 
+obstacle_clear_duration: 1.0 # 減速モード時のクールタイム
+normal_slow_theta: 0.3 # 停止モード時の回転速度
