@@ -1,0 +1,62 @@
+waypoint_reconfigure_config:
+  version: 1.0.0
+  name: "description"
+#  default_dwa_limit_vel: 1.0
+  default_local_inflation: 0.40 
+  default_global_inflation: 0.2 
+  default_trajectory_limit_vel: 1.0 
+  default_trajectory_limit_theta: 2.0
+  default_cost_scale: 10.0
+  default_odom_rot_dev_per_rot: 0.2 # 以下のパラメータは設定しても意味ない. いつか消す
+  default_odom_rot_dev_per_fw: 0.13
+  default_odom_fw_dev_per_rot: 0.0001
+  default_odom_fw_dev_per_fw: 0.05
+  areas:
+    - name: "test_stop"
+      start_id: registed_0_1758693646449076865 
+      end_id: registed_0_1758693694152066115
+      properties:
+        - key: trajectory_limit_theta
+          value: 0.3 
+        - key: local_cost_cloud
+          value: false
+#    - name: "saka_1"
+#      start_id: registed_0_1654678645149395562
+#      end_id: registed_0_1752732492908752068
+#      properties:
+ #       - key: global_inflation
+  #        value: 6.9
+   #     - key: local_inflation
+    #      value: 0.4
+#        - key: local_cost_cloud
+#          value: false
+#    - name: "saka_2"
+#      start_id: registed_0_1654679101563797330
+#      end_id: registed_0_1753169225695727424
+#      properties:
+#        - key: local_cost_cloud
+#          value: false
+#    - name: "saka_3"
+#      start_id: registed_0_1752731659474436458
+#      end_id: registed_0_1752731666479703492
+#      properties:
+#        - key: local_cost_cloud
+#          value: false
+#    - name: "test_stop2"
+#      start_id: registed_0_1654680020798277308
+#      end_id: registed_0_1654680034885180993
+#      properties:
+#        - key: trajectory_limit_theta
+#          value: 0.1 
+#        - key: local_inflation
+#          value: 0.0
+#        - key: local_cost_cloud
+#          value: false
+#    - name: "test_stop3"
+#      start_id: registed_0_1654680119611979294 
+#      end_id: registed_0_1752822775886769344
+#      properties:
+#        - key: trajectory_limit_theta
+#          value: 0.05 
+#        - key: local_cost_cloud
+#          value: false
