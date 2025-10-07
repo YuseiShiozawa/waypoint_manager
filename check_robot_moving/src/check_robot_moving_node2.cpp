@@ -223,8 +223,8 @@ int main(int argc, char **argv) {
             //            ROS_INFO("PrevWaypoint call success");
 
                         // 次にNextWaypointを即座に呼ぶ
-                        ros::Duration(8.0).sleep();  // ちょっと待ってから
-              //          ROS_INFO("Service call NextWaypoint()");
+                        ros::Duration(1.0).sleep();  // ちょっと待ってから
+                        ROS_INFO("Service call NextWaypoint()");
                         repeat_waypoint_counter++;
     //                    ROS_INFO("repeat_waypoint_counter = %d", repeat_waypoint_counter);
                         if (!next_waypoint_service.call(trigger)) {
