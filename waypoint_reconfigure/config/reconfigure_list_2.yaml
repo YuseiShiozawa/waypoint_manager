@@ -12,7 +12,13 @@ waypoint_reconfigure_config:
   default_odom_fw_dev_per_rot: 0.0001
   default_odom_fw_dev_per_fw: 0.05
   areas:
-    - name: "test_stop"
+    - name: "shiyakusho_hosomiti"
+      start_id: registed_0_1758641444293095646 
+      end_id: registed_0_1758641460093999797
+      properties:
+        - key: local_cost_cloud
+          value: false
+    - name: "kakunin_stop"
       start_id: registed_0_1758693646449076865 
       end_id: registed_0_1758693694152066115
       properties:
@@ -20,6 +26,89 @@ waypoint_reconfigure_config:
           value: 0.3 
         - key: local_cost_cloud
           value: false
+    - name: "kakunin_owari_stop"
+      start_id: registed_0_1758694310760242202
+      end_id: registed_0_1758694316358812305
+      properties:
+        - key: trajectory_limit_theta
+          value: 0.3
+        - key: local_cost_cloud
+          value: false
+    - name: "kakunin_owari_stop_2"
+      start_id: registed_0_1759820559900422399
+      end_id: registed_0_1759820581460369709
+      properties:
+        - key: trajectory_limit_theta
+          value: 0.3
+        - key: local_cost_cloud
+          value: false
+    - name: "shingou_1"
+      start_id: registed_0_1759820764688067901
+      end_id: registed_0_1759820784241200378
+      properties:
+        - key: trajectory_limit_theta
+          value: 0.3
+        - key: local_cost_cloud
+          value: false
+#    - name: "shingou_2"
+#      start_id: registed_0_1759820823203567583
+#      end_id: registed_0_1759836985005001109
+#      properties:
+#        - key: trajectory_limit_theta
+#          value: 0.3
+#        - key: local_cost_cloud
+#          value: false
+    - name: "kouen_owari_stop"
+      start_id: registed_0_1759821422453470894
+      end_id: registed_0_1759821463054363629
+      properties:
+        - key: trajectory_limit_theta
+          value: 0.3
+        - key: local_cost_cloud
+          value: false
+    - name: "eki_owari_stop"
+      start_id: registed_0_1759821846274770639
+      end_id: registed_0_1759821873036278462
+      properties:
+        - key: trajectory_limit_theta
+          value: 0.3
+        - key: local_cost_cloud
+          value: false
+    - name: "singou_3"
+      start_id: registed_0_1759822003239408840
+      end_id: registed_0_1759822023275393601
+      properties:
+        - key: trajectory_limit_theta
+          value: 0.3
+        - key: local_cost_cloud
+          value: false
+#    - name: "singou_4"
+#      start_id: registed_0_1759822101802579334
+#      end_id: registed_0_1759822118236370465
+#      properties:
+#        - key: trajectory_limit_theta
+#          value: 0.3
+#        - key: local_cost_cloud
+#          value: false
+    - name: "kaeri_1"
+      start_id: registed_0_1759822275616491274
+      end_id: registed_0_1759822288527506770
+      properties:
+        - key: trajectory_limit_theta
+          value: 0.3
+        - key: local_cost_cloud
+          value: false
+    - name: "kaeri_2"
+      start_id: registed_0_1759822356380538423
+      end_id: registed_0_1759822378630107364
+      properties:
+        - key: trajectory_limit_theta
+          value: 0.3
+        - key: local_cost_cloud
+          value: false
+
+
+# gomimitainasagyou_nidotoyaritakunai
 #    - name: "saka_1"
 #      start_id: registed_0_1654678645149395562
 #      end_id: registed_0_1752732492908752068
