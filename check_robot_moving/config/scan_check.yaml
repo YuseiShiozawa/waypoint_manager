@@ -2,7 +2,7 @@ slow_threshold: 8.0
 stop_threshold: 4.0
 normal_slow_vel: 0.5
 force_slow_vel: 0.5
-normal_check_angle_deg: 5.0
+normal_check_angle_deg: 4.0
 force_check_angle_deg: 5.0
 obstacle_clear_duration: 5.0
 normal_slow_theta: 1.0
