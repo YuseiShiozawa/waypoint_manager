@@ -34,7 +34,7 @@ namespace {
     static double delta_pose_dist = 0, pose_dist = 0;
     static float vel_x = 0;
     static float limit_delta_pose_dist = 1.0;
-    static float limit_time = 20;
+    static float limit_time = 40;
     static ros::Time last_cmd_vel_time; //add
     static const double cmd_vel_timeout_sec = 0.5; // cmd_velがこの秒数届かないと停止とみなす
     static int repeat_waypoint_counter = 0;
