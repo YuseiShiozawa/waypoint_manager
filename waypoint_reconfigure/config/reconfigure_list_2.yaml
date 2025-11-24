@@ -68,14 +68,14 @@ waypoint_reconfigure_config:
 #      properties:
 #        - key: local_cost_cloud
 #          value: false
-    - name: "singou_3"
-      start_id: registed_0_575899000000
-      end_id: registed_0_1759822023275393601
-      properties:
-        - key: trajectory_limit_theta
-          value: 0.3
-        - key: local_cost_cloud
-          value: false
+#    - name: "singou_3"
+#      start_id: registed_0_575899000000
+#      end_id: registed_0_1759822023275393601
+#      properties:
+#        - key: trajectory_limit_theta
+#          value: 0.3
+#        - key: local_cost_cloud
+#          value: false
     - name: "singou_3_4"
       start_id: registed_0_1759822049654881470
       end_id: registed_0_1759822142347394517
