@@ -56,18 +56,18 @@ waypoint_reconfigure_config:
       properties:
         - key: local_cost_cloud
           value: false
-#    - name: "kouen_owari_stop"
-#      start_id: registed_0_1759821422453470894
-#      end_id: registed_0_1759821463054363629
-#      properties:
-#        - key: local_cost_cloud
-#          value: false
-#    - name: "eki_owari_stop"
-#      start_id: registed_0_1759821846274770639
-#      end_id: registed_0_1759821873036278462
-#      properties:
-#        - key: local_cost_cloud
-#          value: false
+    - name: "kouen_owari_stop"
+      start_id: registed_0_1759821463054363629
+      end_id: registed_0_1759821469579503205
+      properties:
+        - key: local_cost_cloud
+          value: false
+    - name: "eki_owari_stop"
+      start_id: registed_0_1759821873036278462
+      end_id: registed_0_1759821877753680361
+      properties:
+        - key: local_cost_cloud
+          value: false
 #    - name: "singou_3"
 #      start_id: registed_0_575899000000
 #      end_id: registed_0_1759822023275393601
